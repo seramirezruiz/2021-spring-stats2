@@ -15,18 +15,13 @@ type: book
 - Explain the assignment submission proccess through `Github`
 - Introduce you to `RMarkdown`
 
+<a class="btn btn-success" href="w1-intro.pdf" role="button" target="_blank">Download slides - PDF</a>
+
 ---
 
 ## Program overview
 
 Welcome to our introductory week. During this session we will go over the basic set-up for this semester.
-
----
-
-## Slides
-
-**Download the slides:** <br>
-
 
 ---
 
@@ -39,6 +34,7 @@ Welcome to our introductory week. During this session we will go over the basic 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reminder of the basics: https://tinyurl.com/vkebh2f <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`RMarkdown`: The definitive guide https://tinyurl.com/y4tyfqmg <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`RMarkdown` cheatsheet: https://tinyurl.com/uqoelrx <br>
+
 
 ## Meet your instructors
 

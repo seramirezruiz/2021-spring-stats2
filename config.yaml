@@ -2,6 +2,7 @@ theme: starter-academic
 title: "| Tutorials - Spring 2021 |" 
 baseurl: 'https://seramirezruiz.github.io/2021-spring-stats2'
 copyright: ''
+publishDir: "docs/"
 enableGitInfo: no
 defaultContentLanguage: en
 hasCJKLanguage: no
