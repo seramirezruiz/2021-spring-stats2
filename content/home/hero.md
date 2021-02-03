@@ -4,7 +4,7 @@ headless: true
 active: true
 weight: 10
 title: Statistical Modeling and Causal Inference
-hero_media: hero-academic.png
+hero_media: hero-code.png
 design:
   background:
     gradient_end: '#951bcc'

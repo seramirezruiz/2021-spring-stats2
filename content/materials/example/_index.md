@@ -23,6 +23,13 @@ Welcome to our introductory week. During this session we will go over the basic 
 
 ---
 
+## Slides
+
+**Download the slides:** <br>
+
+
+---
+
 ## Further references
 
 **For Git:** <br>
