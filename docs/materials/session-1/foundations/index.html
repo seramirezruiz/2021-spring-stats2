@@ -684,7 +684,7 @@
 
           <div class="article-style">
             <h2 id="welcome">Welcome!</h2>
-<p>The practical component of the <strong>Statistics II: Statistical Modeling and Causal Inference</strong> course relies largely in <em>R</em> programming. Today we will center on some of the necessary skills to perform the assignments for the course. Finally, we will dive into some of the substance of the class by exploring the Potential Outcomes Framework.</p>
+<p>The practical component of the <strong>Statistics II: Statistical Modeling and Causal Inference</strong> course relies largely in <em>R</em> programming. Today we will center on some of the necessary skills to perform the assignments for the course.</p>
 <p>In this tutorial, you will learn to:</p>
 <ul>
 <li>identify the some of the basic functionalities of <em>R</em> and <em>RStudio</em></li>
@@ -740,7 +740,7 @@
 </ol>
 <hr>
 <h3 id="r-packages">R Packages</h3>
-<p>For the most part, <em>R Packages</em> are collections of code and functions that leverage R programming to expand on the basic functionalities. Last week we met <code>dplyr</code> that aids R programmers in the process of data cleaning and manipulation. There are a plethora of packages in <em>R</em> designed to facilite the completion of tasks. In fact, this tutorial builds on the <code>learnr</code> package that allows us to turn R Markdown documents into interactive tutorials.</p>
+<p>For the most part, <em>R Packages</em> are collections of code and functions that leverage R programming to expand on the basic functionalities. Last week we met <code>dplyr</code> that aids R programmers in the process of data cleaning and manipulation. There are a plethora of packages in <em>R</em> designed to facilite the completion of tasks. In fact, this website is built with the <code>blogdown</code> package that lets you create websites using <code>RMarkdown</code> and Hugo</p>
 <p>Unlike other programming languages, in <em>R</em> you only need to install a package once. The following times you will only need to &ldquo;require&rdquo; the package. <strong>As a good practice I recommend running the code to install packages only in your R console, not in the code editor.</strong> You can install a package with the following syntax</p>
 <pre><code class="language-r">install.packages(&quot;name_of_your_package&quot;) #note that the quotation marks are mandatory at this stage
 </code></pre>
@@ -748,7 +748,12 @@
 <pre><code class="language-r">library(&quot;name_of_your_package&quot;) #either of this lines will require the package
 library(name_of_your_package) #library understands the code with, or without, quotation marks
 </code></pre>
-<p><strong>It is extremely important that you do not have any lines installing packages for your assignments because the file will fail to knit</strong></p>
+<div class="alert alert-note">
+  <div>
+    <strong>It is extremely important that you do not have any lines installing packages for your assignments because the file will fail to knit</strong>
+  </div>
+</div>
+
 <hr>
 <h3 id="working-directory">Working directory</h3>
 <p>The <em>working directory</em> is just a file path on your computer that sets the default location of any files you read into R, or save out of R. Normally, when you open <em>RStudio</em> it will have a default directory (a folder in your computer). You can check you directory by running <code>getwd()</code> in your console:</p>
@@ -828,7 +833,13 @@ setwd(&quot;c:/path/to/your/directory&quot;) #in windows
 
 </figure>
 
-<p>We recommend you pay close attention to your folder structure. You can create an independent folder for each assignment. Make the folder your working directory when working on the assignment. This folder will be populated with the template .Rmd and the data for the week. When you knit the file, the <strong>.html</strong> will be created in this folder.</p>
+<p>We recommend you pay close attention to your folder structure. You will receive a new folder for each assignment. Make the folder your working directory when working on the assignment. This folder will be populated with the template .Rmd and the data for the week. When you knit the file, the <strong>.html</strong> will be created in this folder.</p>
+<div class="alert alert-note">
+  <div>
+    <strong>We will learn more about the assignment submission workflow next week. Still, avoid changing the name of the files you receive in Github since it will create issues.</strong>
+  </div>
+</div>
+
 <hr>
 <h3 id="dealing-with-errors-in-r">Dealing with errors in R</h3>
 <p>Errors in R occur when code is used in a way that it is not intended. For example when you try to add two character strings, you will get the following error:</p>
@@ -843,7 +854,7 @@ Warning: NAs introduced by coercion
 <p>Since we will be utilizing widely used packages and functions in the course of the semester, the errors that you may come across in the process of completing your assignments will be common for other R users. Most errors occur because of typos. A Google search of the error message can take you a long way as well. Most of the times the first entry on <strong>stackoverflow.com</strong> will solve the problem.</p>
 <hr>
 <h2 id="importing-data">Importing data</h2>
-<p>Last week we worked with data provided by the <code>palmerpenguins</code> package; however, most practical applications will require you to work with your own data. In fact, for most assignments, you will be given a data set to work with.  As we discussed last week, data are messy. You know what else is messy? Data formats. You may be acquainted with a couple of them <em>(.csv, .tsv, .xlsx)</em>.</p>
+<p>Next we will work with data provided by the <code>palmerpenguins</code> package; however, most practical applications will require you to work with your own data. In fact, for most assignments, you will be given a data set to work with. As we will see in the coming weeks, data are messy. You know what else is messy? Data formats. You may be acquainted with a couple of them <em>(.csv, .tsv, .xlsx)</em>.</p>
 <p>Fortunately for us, the <code>tidyverse</code> has two packages that make the process of loading data sets from different formats very easy.</p>
 <ul>
 <li><code>readr</code>: The goal of <code>readr</code> is to provide a fast and friendly way to read rectangular data (like <strong>csv, tsv, rds, and fwf</strong>)</li>
@@ -858,7 +869,7 @@ your_data_frame &lt;- readr::read_rds(&quot;path_for_the_file&quot;)
 #you can alternatively use a base R option
 your_data_frame &lt;- base::readRDS(&quot;path_for_the_file&quot;)
 </code></pre>
-<p>When in doubt just Google <strong>&ldquo;How to load x_format data in R?&quot;</strong> That will do the trick!</p>
+<p>This week&rsquo;s mock assignment will feature a <strong>.tsv</strong> file. When in doubt just Google <strong>&ldquo;How to load x_format data in R?&quot;</strong> That will do the trick!</p>
 <hr>
 <h3 id="the-double-colon-operator-">The double colon operator ::</h3>
 <p>You may have noted in the previous section that the functions were preceded by their package name and two colons, for example: <code>readr::read_rds()</code>. The double colon operator <code>::</code> helps us ensure that we select functions from a particular package. We utilize the operator to explicitly state where the function is coming. This may become even more important when you are doing data analysis as part of a team further in your careers. Though it is likely that this will not be a problem during the course, we can try to employ the following convention <code>package_name::function()</code> to ensure that we will not encounter errors in our knitting process:</p>

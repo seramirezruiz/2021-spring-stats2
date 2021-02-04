@@ -8,7 +8,7 @@ weight: 3
 ## Welcome!
 
 
-The practical component of the **Statistics II: Statistical Modeling and Causal Inference** course relies largely in *R* programming. Today we will center on some of the necessary skills to perform the assignments for the course. Finally, we will dive into some of the substance of the class by exploring the Potential Outcomes Framework.
+The practical component of the **Statistics II: Statistical Modeling and Causal Inference** course relies largely in *R* programming. Today we will center on some of the necessary skills to perform the assignments for the course.
 
 In this tutorial, you will learn to:
 
@@ -38,7 +38,7 @@ In this tutorial, you will learn to:
 
 ### R Packages
 
-For the most part, *R Packages* are collections of code and functions that leverage R programming to expand on the basic functionalities. Last week we met `dplyr` that aids R programmers in the process of data cleaning and manipulation. There are a plethora of packages in *R* designed to facilite the completion of tasks. In fact, this tutorial builds on the `learnr` package that allows us to turn R Markdown documents into interactive tutorials.
+For the most part, *R Packages* are collections of code and functions that leverage R programming to expand on the basic functionalities. Last week we met `dplyr` that aids R programmers in the process of data cleaning and manipulation. There are a plethora of packages in *R* designed to facilite the completion of tasks. In fact, this website is built with the `blogdown` package that lets you create websites using `RMarkdown` and Hugo
 
 Unlike other programming languages, in *R* you only need to install a package once. The following times you will only need to "require" the package. **As a good practice I recommend running the code to install packages only in your R console, not in the code editor.** You can install a package with the following syntax
 
@@ -53,7 +53,9 @@ library("name_of_your_package") #either of this lines will require the package
 library(name_of_your_package) #library understands the code with, or without, quotation marks
 ```
 
+{{< callout note >}}
 **It is extremely important that you do not have any lines installing packages for your assignments because the file will fail to knit**
+{{< /callout >}}
 
 ---
 
@@ -92,7 +94,11 @@ setwd("c:/path/to/your/directory") #in windows
 
 {{< figure src="https://user-images.githubusercontent.com/54796579/92937233-5ee4d100-f44b-11ea-9ee7-cc7209b80562.png" >}}
 
-We recommend you pay close attention to your folder structure. You can create an independent folder for each assignment. Make the folder your working directory when working on the assignment. This folder will be populated with the template .Rmd and the data for the week. When you knit the file, the **.html** will be created in this folder.
+We recommend you pay close attention to your folder structure. You will receive a new folder for each assignment. Make the folder your working directory when working on the assignment. This folder will be populated with the template .Rmd and the data for the week. When you knit the file, the **.html** will be created in this folder.
+
+{{< callout note >}}
+**We will learn more about the assignment submission workflow next week. Still, avoid changing the name of the files you receive in Github since it will create issues.**
+{{< /callout >}}
 
 ---
 
@@ -119,7 +125,7 @@ Since we will be utilizing widely used packages and functions in the course of t
 
 ## Importing data
 
-Last week we worked with data provided by the `palmerpenguins` package; however, most practical applications will require you to work with your own data. In fact, for most assignments, you will be given a data set to work with.  As we discussed last week, data are messy. You know what else is messy? Data formats. You may be acquainted with a couple of them *(.csv, .tsv, .xlsx)*.
+Next we will work with data provided by the `palmerpenguins` package; however, most practical applications will require you to work with your own data. In fact, for most assignments, you will be given a data set to work with. As we will see in the coming weeks, data are messy. You know what else is messy? Data formats. You may be acquainted with a couple of them *(.csv, .tsv, .xlsx)*.
 
 Fortunately for us, the `tidyverse` has two packages that make the process of loading data sets from different formats very easy.
 
@@ -127,6 +133,7 @@ Fortunately for us, the `tidyverse` has two packages that make the process of lo
 - `haven`: The goal of `haven` is to enable R to read and write various data formats used by other statistical packages (like **dta, sas, and sav**)
 
 You can read more about how to load different types of data in the respective documentations of the packages — [readr](https://readr.tidyverse.org/) and [haven](https://haven.tidyverse.org/)
+
 
 ---
 
@@ -140,7 +147,7 @@ your_data_frame <- readr::read_rds("path_for_the_file")
 your_data_frame <- base::readRDS("path_for_the_file")
 ```
 
-When in doubt just Google **"How to load x_format data in R?"** That will do the trick!
+This week's mock assignment will feature a **.tsv** file. When in doubt just Google **"How to load x_format data in R?"** That will do the trick!
 
 ---
 
