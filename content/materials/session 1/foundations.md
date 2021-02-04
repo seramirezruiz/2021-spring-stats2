@@ -2,7 +2,7 @@
 title: R and RStudio basics
 date: '2021-02-03'
 type: book
-weight: 20
+weight: 3
 ---
 
 ## Welcome!

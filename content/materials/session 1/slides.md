@@ -4,11 +4,12 @@ linkTitle: Slides
 summary: Welcome to our introduction to the tutorials
 date: '2021-02-03'
 type: book
+weight: 2
 ---
 
 ## Slides
 
-<iframe src="../w1-intro.pdf" width="100%" height="500px">
+<iframe src="../w1-intro.pdf#view=fit" width="100%" height="500px">
     </iframe>
 
 <!--
