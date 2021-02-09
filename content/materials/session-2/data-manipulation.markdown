@@ -2,6 +2,7 @@
 title: "Introduction to Data Manipulation"
 subtitle: "Getting our data right with `dplyr`"
 type: book
+weight: 4
 output:
   blogdown:html_page:
     theme: journal

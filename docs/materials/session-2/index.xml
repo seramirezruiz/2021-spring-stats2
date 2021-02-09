@@ -436,5 +436,637 @@ mutate(new_var_name = conditions)&lt;/center&gt;&lt;br&gt;
 </description>
     </item>
     
+    <item>
+      <title>The Potential Outcomes Framework</title>
+      <link>https://seramirezruiz.github.io/2021-spring-stats2/materials/session-2/pof/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://seramirezruiz.github.io/2021-spring-stats2/materials/session-2/pof/</guid>
+      <description>
+&lt;script src=&#34;https://seramirezruiz.github.io/2021-spring-stats2/2021-spring-stats2rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&#34;the-pof-in-practice&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;The POF in practice&lt;/h1&gt;
+&lt;p&gt;Let&#39;s revisit the example from our slides once again.&lt;/p&gt;
+&lt;p&gt;Say we are interested in assessing the premise of Allport&#39;s hypothesis about interpersonal contact being conducive to reducing intergroup prejudice.&lt;/p&gt;
+&lt;p&gt;We are studying a set of (&lt;span class=&#34;math inline&#34;&gt;\(n=8\)&lt;/span&gt;) students assigned to a dorm room with a person from their own ethnic group &lt;strong&gt;(contact=0)&lt;/strong&gt; and from a different group &lt;strong&gt;(contact=1)&lt;/strong&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;center&#34;&gt;Student (i)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Prejudice (C=0)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Prejudice (C=1)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;7&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;8&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;8&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr /&gt;
+&lt;div id=&#34;data-set&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data set&lt;/h2&gt;
+&lt;p&gt;Today we will work with the &lt;code&gt;prejudice_df&lt;/code&gt; object. The data frame contains the following four variables:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;student_id&lt;/code&gt;: numeric student identification&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;prej_0&lt;/code&gt;: prejudice level under &lt;span class=&#34;math inline&#34;&gt;\(Y_{0i}\)&lt;/span&gt; (Contact=0)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;prej_1&lt;/code&gt;: prejudice level under &lt;span class=&#34;math inline&#34;&gt;\(Y_{1i}\)&lt;/span&gt; (Contact=1)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dorm_type&lt;/code&gt;: binary for actual treatment state&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 8 x 4
+##   student_id prej_0 prej_1 dorm_type
+##        &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1          1      6      5         0
+## 2          2      4      2         1
+## 3          3      4      4         0
+## 4          4      6      7         0
+## 5          5      3      1         1
+## 6          6      2      2         1
+## 7          7      8      7         0
+## 8          8      4      5         0&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;treatment-effects&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Treatment Effects&lt;/h1&gt;
+&lt;div id=&#34;a-individual-treatment-effect-ite&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;a) Individual Treatment Effect (ITE)&lt;/h2&gt;
+&lt;p&gt;We assume from the &lt;em&gt;potential outcomes framework&lt;/em&gt; that each subject has a &lt;strong&gt;potential outcome&lt;/strong&gt; under both treatment states. Let&#39;s take the first student in the list as an example.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/92996733-20641a80-f50e-11ea-8b55-a17da3d8b36f.png&#34; width=&#34;65%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The figure illustrates the &lt;strong&gt;potential outcomes&lt;/strong&gt; for &lt;em&gt;Student 1&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;We see that in a reality where &lt;em&gt;Student 1&lt;/em&gt; is assigned to in-group dorm &lt;strong&gt;(contact=0)&lt;/strong&gt; their levels of prejudice are &lt;em&gt;6&lt;/em&gt;. On the contrary, in a reality where &lt;em&gt;Student 1&lt;/em&gt; is assigned to co-ethnic dorm &lt;strong&gt;(contact=1)&lt;/strong&gt; their levels of prejudice are &lt;em&gt;5&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;From this illustration, we can gather the &lt;strong&gt;individual treatment effect (ITE)&lt;/strong&gt; for student one. The &lt;strong&gt;ITE&lt;/strong&gt; is equal to the values under treatment &lt;em&gt;(contact=1)&lt;/em&gt; minus to the values without treatment &lt;em&gt;(contact=0)&lt;/em&gt; or &lt;span class=&#34;math inline&#34;&gt;\(ITE = y_{1i} - y_{0i}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ITE = 5 - 6 = -1\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    &lt;p&gt;As it was put in Cunningham&amp;rsquo;s book:&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;The ITE is a “comparison of two states of the world” (Cunningham, 2021): individuals are exposed to contact, and not exposed to it.&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Evidently, each subject can only be observed in one treatment state at any point in time in real life. This is known as the &lt;strong&gt;fundamental problem&lt;/strong&gt; (Holland, 1986) of causal inference. &lt;strong&gt;The Individual Treatment Effect (ITE) in reality is unattainable.&lt;/strong&gt; Still, it provides us with a conceptual foundation for causal estimation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exercise:&lt;/strong&gt; &lt;em&gt;Our data are coming from a world with perfect information. In that sense, we have both potential outcomes &lt;code&gt;prej_0&lt;/code&gt; and &lt;code&gt;prej_1&lt;/code&gt;. Can you think of a way to calculate the&lt;/em&gt; &lt;strong&gt;ITE&lt;/strong&gt; &lt;em&gt;for the eight students with one of the &lt;code&gt;dplyr&lt;/code&gt; verbs we learned in the previous section?&lt;/em&gt;&lt;/p&gt;
+&lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-1&#34;&gt;
+  &lt;summary&gt;Hint&lt;/summary&gt;
+  &lt;p&gt;Can you think of a way we can use the verb &lt;code&gt;mutate()&lt;/code&gt;&lt;/p&gt;
+&lt;/details&gt;
+&lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-2&#34;&gt;
+  &lt;summary&gt;Answer&lt;/summary&gt;
+  &lt;p&gt;&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#you can employ dplyr::mutate() to create the new variable ite
+prejudice_df %&amp;gt;% 
+  dplyr::mutate(ite = prej_1 - prej_0)&lt;/code&gt;&lt;/pre&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+student_id
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+prej_0
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+prej_1
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+dorm_type
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+ite
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-1
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-2
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-2
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-1
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/p&gt;
+&lt;/details&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;div id=&#34;average-treatment-effect-ate&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Average Treatment Effect (ATE)&lt;/h2&gt;
+&lt;p&gt;Normally, we are not interested in the estimates of individual subjects, but rather a population. The &lt;strong&gt;Average Treatment Effect (ATE)&lt;/strong&gt; is the difference in the average potential outcomes of the population.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ATE = E(Y_{1i}) - E(Y_{0i})\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;In other words, the &lt;strong&gt;ATE&lt;/strong&gt; is the average &lt;strong&gt;ITE&lt;/strong&gt; of all the subjects in the population. As you can see, &lt;strong&gt;the ATE as defined in the formula is also not attainable&lt;/strong&gt;. Can you think why?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exercise:&lt;/strong&gt; &lt;em&gt;Since our data are coming from a world with perfect information. Can you think of a way to calculate the&lt;/em&gt; &lt;strong&gt;ATE&lt;/strong&gt; &lt;em&gt;for the eight students based on what we learned last week?&lt;/em&gt;&lt;/p&gt;
+&lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-3&#34;&gt;
+  &lt;summary&gt;Hint&lt;/summary&gt;
+  &lt;p&gt;We have already extracted the ite with &lt;code&gt;mutate()&lt;/code&gt;. We know that the the ATE is the averge of every subject&#39;s ITE. Do you remember &lt;code&gt;summarize()&lt;/code&gt;?&lt;/p&gt;
+&lt;/details&gt;
+&lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-4&#34;&gt;
+  &lt;summary&gt;Answer&lt;/summary&gt;
+  &lt;p&gt;&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#we know that the ATE is the averge of every subject&amp;#39;s ITE. Do you remember dplyr::summarize()?
+#how can we use the verbs from last week to get the average treatment effect?
+
+prejudice_df %&amp;gt;%
+  dplyr::mutate(ite = prej_1 - prej_0) %&amp;gt;%
+  dplyr::summarize(mean(ite))&lt;/code&gt;&lt;/pre&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+mean(ite)
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-0.5
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/p&gt;
+&lt;/details&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-average-treatment-effect-among-the-treated-and-control-att-and-atc&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The Average Treatment Effect Among the Treated and Control (ATT) and (ATC)&lt;/h2&gt;
+&lt;p&gt;The names for these two estimates are very self-explanatory. These two estimates are simply the average treatment effects conditional on the group subjects are assigned to.&lt;/p&gt;
+&lt;p&gt;The average treatment effect on the treated &lt;strong&gt;ATT&lt;/strong&gt; is defined as the difference in the average potential outcomes for those subjects who were treated: &lt;span class=&#34;math display&#34;&gt;\[ATT = E(Y_{1i}-Y_{0i} | D = 1)\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The average treatment effect on the control &lt;strong&gt;ATC&lt;/strong&gt; is defined as the difference in the average potential outcomes for those subjects who were not treated: &lt;span class=&#34;math display&#34;&gt;\[ATU = E(Y_{1i}-Y_{0i} | D = 0)\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exercise:&lt;/strong&gt; &lt;em&gt;Since our data are coming from a world with perfect information. Can you think of a way to calculate the&lt;/em&gt; &lt;strong&gt;ATT&lt;/strong&gt; &lt;em&gt;and&lt;/em&gt; &lt;strong&gt;ATC&lt;/strong&gt; &lt;em&gt;for the eight students based on what we learned last week?&lt;/em&gt;&lt;/p&gt;
+&lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-5&#34;&gt;
+  &lt;summary&gt;Hint&lt;/summary&gt;
+  &lt;p&gt;We have already extracted the ite with &lt;code&gt;mutate()&lt;/code&gt;. We know that the ATT and ATU are the average of every subject&#39;s ITE grouped by their treatment status. Do you remember how the combination of &lt;code&gt;group_by()&lt;/code&gt; and &lt;code&gt;summarize()&lt;/code&gt; worked?&lt;/p&gt;
+&lt;/details&gt;
+&lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-6&#34;&gt;
+  &lt;summary&gt;Answer&lt;/summary&gt;
+  &lt;p&gt;&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#we know that the ATT and ATU are the average of every subject&amp;#39;s ITE grouped by their treatment status. Do you remember how the combination of dplyr::group_by() and dplyr::summarize() worked?
+#how can we use the verbs from last week to get the average treatment effect on the treated and untreated?
+
+prejudice_df %&amp;gt;%
+  dplyr::mutate(ite = prej_1 - prej_0) %&amp;gt;%
+  dplyr::group_by(dorm_type) %&amp;gt;%
+  dplyr::summarize(mean(ite))&lt;/code&gt;&lt;/pre&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+dorm_type
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+mean(ite)
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.000000
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-1.333333
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/p&gt;
+&lt;/details&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-naive-average-treatment-effect-nate&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The Naive Average Treatment Effect (NATE)&lt;/h2&gt;
+&lt;p&gt;So far, we have worked with perfect information. Still, we know that in reality we can only observe subjects in one treatment state. This is the information we &lt;strong&gt;do&lt;/strong&gt; have.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/93014681-527b8800-f5b3-11ea-98f2-200e42f49bd4.png&#34; width=&#34;65%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    The &lt;strong&gt;Näive Average Treatment Effect (NATE)&lt;/strong&gt; is the calculation we can compute based on the observed outcomes.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[NATE = E(Y_{1i}|D{i}=1) - E(Y_{0i}|D{i}=0)\]&lt;/span&gt; *&lt;em&gt;reads in English as: &amp;quot;The expected average outcome under treatment for those treated minus the expected average outcome under control for those not treated&amp;quot;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exercise:&lt;/strong&gt; &lt;em&gt;Can you think of a way to calculate the&lt;/em&gt; &lt;strong&gt;NATE&lt;/strong&gt; &lt;em&gt;for the eight students employing the new &lt;code&gt;observed_prej&lt;/code&gt; variable?&lt;/em&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;prejudice_df %&amp;gt;%
+  dplyr::mutate(observed_prej = ifelse(dorm_type == 1, prej_1, prej_0))&lt;/code&gt;&lt;/pre&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+student_id
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+prej_0
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+prej_1
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+dorm_type
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+observed_prej
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-8&#34;&gt;
+  &lt;summary&gt;Hint&lt;/summary&gt;
+  &lt;p&gt;We have already extracted the average observed outcomes depending on the treatment status with &lt;code&gt;mutate()&lt;/code&gt;. We know that the NATE is the difference in average observed outcomes grouped by their treatment status. Do you remember how the combination of &lt;code&gt;group_by()&lt;/code&gt; and &lt;code&gt;summarize()&lt;/code&gt; worked?&lt;/p&gt;
+&lt;/details&gt;
+&lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-9&#34;&gt;
+  &lt;summary&gt;Answer&lt;/summary&gt;
+  &lt;p&gt;&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#we know that the NATE is the difference in average observed outcomes grouped by their treatment status. Do you remember how the combination of dplyr::group_by() and dplyr::summarize() worked?
+
+prejudice_df %&amp;gt;%
+  dplyr::mutate(observed_prej = ifelse(dorm_type == 1, prej_1, prej_0)) %&amp;gt;%
+  dplyr::group_by(dorm_type) %&amp;gt;%
+  dplyr::summarize(mean(observed_prej))&lt;/code&gt;&lt;/pre&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+dorm_type
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+mean(observed_prej)
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5.600000
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.666667
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/p&gt;
+&lt;/details&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;em&gt;Note.&lt;/em&gt; The ìfelse() function is a very handy tool to have. It allows us to generate conditional statements. The syntax is the following:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ifelse(condition_to_meet, what_to_do_if_met, what_to_do_if_not_met)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;In the case of &lt;code&gt;observed_prej&lt;/code&gt;, we ask&lt;/em&gt; &lt;strong&gt;R&lt;/strong&gt; &lt;em&gt;to create a new variable, where if the subject is in a co-ethnic dorm, we print the prejudice value under treatment. If that condition is not met, we print the prejudice value under control.&lt;/em&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bias&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Bias&lt;/h1&gt;
+&lt;div id=&#34;bias-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Bias&lt;/h2&gt;
+&lt;p&gt;During the lecture, we met two sources of bias:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/93015117-13e7cc80-f5b7-11ea-8281-dde25922a883.png&#34; width=&#34;65%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;div id=&#34;selection-bias&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Selection bias&lt;/h2&gt;
+&lt;p&gt;Selection bias is difference in expected outcomes in the absence of treatment for the actual treatment and control group. In other words, these are the underlying differences that individuals in either group start off with.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;div id=&#34;heterogeneous-treatment-effect-hte-bias&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Heterogeneous Treatment Effect (HTE) bias&lt;/h2&gt;
+&lt;p&gt;Heterogeneous Treatment Effect (HTE) bias is the difference in returns to treatment (the treatment effect) between the treatment and control group, multiplied by the share of the population in control. In other words, this type of bias relates to the dissimilarities stemming for ways in which individuals in either group are affected differently by the treatment.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;We will let you think about these for the mock assignment&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exercise:&lt;/strong&gt; &lt;em&gt;Since our data are coming from a world with perfect information. Can you think of a way to explore the existence&lt;/em&gt; &lt;strong&gt;selection bias&lt;/strong&gt; &lt;em&gt;in our data?&lt;/em&gt;&lt;/p&gt;
+&lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-10&#34;&gt;
+  &lt;summary&gt;Hint&lt;/summary&gt;
+  &lt;p&gt;We know that the selection bias is the difference in average observed outcomes under control grouped by their treatment status. Do you remember how the combination of dplyr::group_by() and dplyr::summarize() worked?&lt;/p&gt;
+&lt;/details&gt;
+&lt;p&gt;&lt;strong&gt;Exercise:&lt;/strong&gt; &lt;em&gt;Since our data are coming from a world with perfect information. Can you think of a way to explore the existence&lt;/em&gt; &lt;strong&gt;HTE bias&lt;/strong&gt; &lt;em&gt;in our data?&lt;/em&gt;&lt;/p&gt;
+&lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-11&#34;&gt;
+  &lt;summary&gt;Hint&lt;/summary&gt;
+  &lt;p&gt;We know that the HTE bias is the difference in difference in the average of every subject&#39;s ITE grouped by their treatment status (or the difference between ATT and ATCs). Maybe you can go back an check how to get the average treatment effect on the treated and untreated.&lt;/p&gt;
+&lt;/details&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>

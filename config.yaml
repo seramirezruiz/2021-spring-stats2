@@ -13,6 +13,7 @@ paginate: 10
 enableEmoji: yes
 enableRobotsTXT: no
 footnotereturnlinkcontents: <sup>^</sup>
+math: true
 
 ignoreFiles:
   - \.ipynb$
