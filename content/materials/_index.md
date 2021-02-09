@@ -7,4 +7,4 @@ header:
   image: ""
 ---
 
-Here are the materials:
+Click on the week's session to access the materials
