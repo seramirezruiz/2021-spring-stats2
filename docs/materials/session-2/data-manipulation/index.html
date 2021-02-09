@@ -722,9 +722,6 @@
 <script src="/2021-spring-stats2rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
 <script src="/2021-spring-stats2rmarkdown-libs/pymjs/pym.v1.js"></script>
 <script src="/2021-spring-stats2rmarkdown-libs/widgetframe-binding/widgetframe.js"></script>
-<script src="/2021-spring-stats2rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="/2021-spring-stats2rmarkdown-libs/pymjs/pym.v1.js"></script>
-<script src="/2021-spring-stats2rmarkdown-libs/widgetframe-binding/widgetframe.js"></script>
 <h1 id="1-introduction">1. Introduction</h1>
 <h2 id="welcome">Welcome!</h2>
 <p>Welcome to our second tutorial for the Statistics II: Statistical Modeling &amp; Causal Inference (with R) course.</p>
@@ -881,15 +878,14 @@ select(data, columns)
 <em>The following code chunk would select the species, island, and year variables. What should we do to keep the body_mass_g and sex variables as well?</em></p>
 <pre><code class="language-r">dplyr::select(penguins, species, island, year)
 </code></pre>
-<div id="htmlwidget-1" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-7.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<iframe src="https://github.com/seramirezruiz/2021-spring-stats2/blob/master/static/materials/session-2/data-manipulation_files/figure-html/widgets/widget_unnamed-chunk-7.html"> </iframe>
 <details class="spoiler "  id="spoiler-0">
   <summary>Answer</summary>
   <p><pre><code class="language-r"># you just need to type the names of the columns
 dplyr::select(penguins, species, island, year, body_mass_g, sex)
 </code></pre>
-<div id="htmlwidget-2" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-8.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-8.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 </p>
 </details>
 <div class="alert alert-note">
@@ -912,8 +908,8 @@ dplyr::select(penguins, species, island, year, body_mass_g, sex)
 <p>Say we are interested in retrieving the observations from the year 2007. We would do:</p>
 <pre><code class="language-r">dplyr::filter(penguins, year == 2007)
 </code></pre>
-<div id="htmlwidget-3" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-9.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-2" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-9.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 <p><strong>Activity</strong>
 <em>Can you adapt the code to retrieve all the observations of Chinstrap penguins from 2007 (remember that species contains character units)</em></p>
 <details class="spoiler "  id="spoiler-2">
@@ -921,8 +917,8 @@ dplyr::select(penguins, species, island, year, body_mass_g, sex)
   <p><pre><code class="language-r"># you just need to utilize &amp; and type the logical operator for the species
 dplyr::filter(penguins, year == 2007 &amp; species == &quot;Chinstrap&quot;)
 </code></pre>
-<div id="htmlwidget-4" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-10.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-10.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 </p>
 </details>
 <hr>
@@ -947,8 +943,8 @@ final_df #to print it in our console
   dplyr::filter(year == 2009 &amp; species == &quot;Chinstrap&quot;) %&gt;% #filter
   dplyr::select(species, sex, year) #select
 </code></pre>
-<div id="htmlwidget-5" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-12.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-12.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 </p>
 </details>
 <hr>
@@ -962,8 +958,8 @@ mutate(new_var_name = conditions)</center><br>
 <pre><code class="language-r">penguins %&gt;%
   dplyr::mutate(body_mass_lbs = body_mass_g/453.6)
 </code></pre>
-<div id="htmlwidget-6" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-13.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-5" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-13.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 <details class="spoiler "  id="spoiler-4">
   <summary>Answer</summary>
   <p><pre><code class="language-r">penguins %&gt;%
@@ -973,8 +969,8 @@ mutate(new_var_name = conditions)</center><br>
   dplyr::mutate(body_mass_kg = body_mass_g/1000) %&gt;%
   dplyr::select(species, sex, year) %&gt;% DT::datatable() %&gt;% widgetframe::frameWidget()
 </code></pre>
-<div id="htmlwidget-7" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-14.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-14.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 </p>
 </details>
 <hr>
@@ -986,8 +982,8 @@ mutate(new_var_name = conditions)</center><br>
 <pre><code class="language-r">penguins %&gt;%
   dplyr::summarize(heaviest_penguin = max(body_mass_g, na.rm = T)) #max() does not know how to deal with NAs very well
 </code></pre>
-<div id="htmlwidget-8" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-15.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-15.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 <ul>
 <li><code>group_by()</code> + <code>summarize()</code>:</li>
 </ul>
@@ -995,8 +991,8 @@ mutate(new_var_name = conditions)</center><br>
   dplyr::group_by(species) %&gt;%
   dplyr::summarize(heaviest_penguin = max(body_mass_g, na.rm = T))
 </code></pre>
-<div id="htmlwidget-9" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-16.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-8" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-16.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 <p><strong>Activity</strong>
 <em>Can you get the weight of the lightest penguin of each species? You can use <code>min()</code>. What happens when in addition to species you also group by year <code>group_by(species, year)</code>?</em></p>
 <details class="spoiler "  id="spoiler-5">
@@ -1005,16 +1001,16 @@ mutate(new_var_name = conditions)</center><br>
   dplyr::group_by(species) %&gt;%
   dplyr::summarize(lightest_penguin = min(body_mass_g, na.rm = T))
 </code></pre>
-<div id="htmlwidget-10" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-10">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-17.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-17.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 <pre><code class="language-r">penguins %&gt;%
   dplyr::group_by(species, year) %&gt;%
   dplyr::summarize(lightest_penguin = max(body_mass_g, na.rm = T)) 
 </code></pre>
 <pre><code>## `summarise()` has grouped output by 'species'. You can override using the `.groups` argument.
 </code></pre>
-<div id="htmlwidget-11" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-11">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-18.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-10" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-10">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-18.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 </p>
 </details>
 <hr>
@@ -1025,13 +1021,13 @@ mutate(new_var_name = conditions)</center><br>
 <pre><code class="language-r">penguins %&gt;%
   dplyr::arrange(bill_length_mm)
 </code></pre>
-<div id="htmlwidget-12" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-12">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-19.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-11" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-11">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-19.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 <pre><code class="language-r">penguins %&gt;%
   dplyr::arrange(desc(bill_length_mm))
 </code></pre>
-<div id="htmlwidget-13" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-13">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-20.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-12" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-12">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-20.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 <p><strong>Activity</strong>
 <em>Can you create a data frame arranged by body_mass_g of the penguins observed in the &ldquo;Dream&rdquo; island?</em></p>
 <details class="spoiler "  id="spoiler-6">
@@ -1044,8 +1040,8 @@ mutate(new_var_name = conditions)</center><br>
   dplyr::filter(island == &quot;Dream&quot;) %&gt;%
   dplyr::arrange(desc(body_mass_g)) %&gt;% DT::datatable() %&gt;% widgetframe::frameWidget()
 </code></pre>
-<div id="htmlwidget-14" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-14">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-21.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-13" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-13">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-21.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 </p>
 </details>
 

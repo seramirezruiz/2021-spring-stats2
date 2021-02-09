@@ -155,9 +155,12 @@ select(data, columns)
 dplyr::select(penguins, species, island, year)
 ```
 
-```{r, echo=F, results="asis"}
-dplyr::select(penguins, species, island, year) %>% DT::datatable() %>% widgetframe::frameWidget()
+```{r, echo=F}
+wid <- dplyr::select(penguins, species, island, year) %>% DT::datatable()
+htmlwidgets::saveWidget(wid, file = "wid.html", selfcontained = TRUE)
 ```
+
+<iframe src="https://github.com/seramirezruiz/2021-spring-stats2/blob/master/static/materials/session-2/data-manipulation_files/figure-html/widgets/widget_unnamed-chunk-7.html"> </iframe>
 
 
 `r blogdown::shortcode("spoiler", text = "Answer")`
