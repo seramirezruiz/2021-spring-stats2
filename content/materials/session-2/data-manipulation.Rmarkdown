@@ -155,7 +155,7 @@ select(data, columns)
 dplyr::select(penguins, species, island, year)
 ```
 
-```{r, echo=F}
+```{r, echo=F, results="asis"}
 dplyr::select(penguins, species, island, year) %>% DT::datatable() %>% widgetframe::frameWidget()
 ```
 

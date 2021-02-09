@@ -264,7 +264,7 @@ dplyr::select(penguins, species, island, year)
 ```
 
 <div id="htmlwidget-1" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-7.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-7.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 
 {{% spoiler text="Answer" %}}
@@ -275,7 +275,7 @@ dplyr::select(penguins, species, island, year, body_mass_g, sex)
 ```
 
 <div id="htmlwidget-2" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-8.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-8.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 {{% /spoiler %}}
 
@@ -309,7 +309,7 @@ dplyr::filter(penguins, year == 2007)
 ```
 
 <div id="htmlwidget-3" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-9.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-9.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 **Activity**
 *Can you adapt the code to retrieve all the observations of Chinstrap penguins from 2007 (remember that species contains character units)* 
@@ -323,7 +323,7 @@ dplyr::filter(penguins, year == 2007 & species == "Chinstrap")
 ```
 
 <div id="htmlwidget-4" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-10.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-4">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-10.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 {{% /spoiler %}}
 
@@ -360,7 +360,7 @@ penguins %>% #we start off with out df
 
 
 <div id="htmlwidget-5" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-12.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-5">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-12.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 {{% /spoiler %}}
 
@@ -385,7 +385,7 @@ penguins %>%
 ```
 
 <div id="htmlwidget-6" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-13.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-6">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-13.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 
 {{% spoiler text="Answer" %}}
@@ -403,7 +403,7 @@ penguins %>%
 ```
 
 <div id="htmlwidget-7" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-14.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-7">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-14.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 {{% /spoiler %}}
 
@@ -422,7 +422,7 @@ penguins %>%
 ```
 
 <div id="htmlwidget-8" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-15.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-8">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-15.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 - `group_by()` + `summarize()`:
 
@@ -433,7 +433,7 @@ penguins %>%
 ```
 
 <div id="htmlwidget-9" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-16.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-9">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-16.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 **Activity**
 *Can you get the weight of the lightest penguin of each species? You can use `min()`. What happens when in addition to species you also group by year `group_by(species, year)`?*
@@ -447,7 +447,7 @@ penguins %>%
 ```
 
 <div id="htmlwidget-10" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-10">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-17.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-10">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-17.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ```r
 penguins %>%
@@ -461,7 +461,7 @@ penguins %>%
 ```
 
 <div id="htmlwidget-11" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-11">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-18.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-11">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-18.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 {{% /spoiler %}}
 
@@ -481,7 +481,7 @@ penguins %>%
 ```
 
 <div id="htmlwidget-12" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-12">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-19.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-12">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-19.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ```r
 penguins %>%
@@ -489,7 +489,7 @@ penguins %>%
 ```
 
 <div id="htmlwidget-13" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-13">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-20.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-13">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-20.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 **Activity**
 *Can you create a data frame arranged by body_mass_g of the penguins observed in the "Dream" island?*
@@ -510,6 +510,6 @@ penguins %>%
 ```
 
 <div id="htmlwidget-14" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-14">{"x":{"url":"/2021-spring-stats2materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-21.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-14">{"x":{"url":"/2021-spring-stats2/materials/session-2/data-manipulation_files/figure-html//widgets/widget_unnamed-chunk-21.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 {{% /spoiler %}}
