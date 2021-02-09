@@ -2,7 +2,7 @@
 title: 📊 02 - Foundations
 linkTitle: Foundations
 summary: Welcome to our tutorial about data manipulation with `dplyr` and the Potential Outcomes Framework
-date: '2021-02-10'
+date: '2021-02-08'
 type: book
 ---
 
