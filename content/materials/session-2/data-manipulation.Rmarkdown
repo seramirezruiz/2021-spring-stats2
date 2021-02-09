@@ -157,10 +157,10 @@ dplyr::select(penguins, species, island, year)
 
 ```{r, echo=F}
 wid <- dplyr::select(penguins, species, island, year) %>% DT::datatable()
-htmlwidgets::saveWidget(wid, file = "wid.html", selfcontained = TRUE)
+htmlwidgets::saveWidget(wid, file = "wid1.html", selfcontained = TRUE)
 ```
 
-<iframe src="https://github.com/seramirezruiz/2021-spring-stats2/blob/master/static/materials/session-2/data-manipulation_files/figure-html/widgets/widget_unnamed-chunk-7.html"> </iframe>
+<iframe src="../wid1.html" width="100%" height="500"> </iframe>
 
 
 `r blogdown::shortcode("spoiler", text = "Answer")`
@@ -170,10 +170,13 @@ htmlwidgets::saveWidget(wid, file = "wid.html", selfcontained = TRUE)
 dplyr::select(penguins, species, island, year, body_mass_g, sex)
 ```
 
-```{r echo=F}
-# you just need to type the names of the columns
-dplyr::select(penguins, species, island, year, body_mass_g, sex) %>% DT::datatable() %>% widgetframe::frameWidget()
+```{r, echo=F}
+wid <- dplyr::select(penguins, species, island, year, body_mass_g, sex) %>% DT::datatable()
+htmlwidgets::saveWidget(wid, file = "wid2.html", selfcontained = TRUE)
 ```
+
+<iframe src="../wid2.html" width="100%" height="500"> </iframe>
+
 
 `r blogdown::shortcode("/spoiler")`
 
@@ -207,8 +210,12 @@ dplyr::filter(penguins, year == 2007)
 ```
 
 ```{r, echo=F}
-dplyr::filter(penguins, year == 2007) %>% DT::datatable() %>% widgetframe::frameWidget()
+wid <- dplyr::filter(penguins, year == 2007) %>% DT::datatable()
+htmlwidgets::saveWidget(wid, file = "wid3.html", selfcontained = TRUE)
 ```
+
+<iframe src="../wid3.html" width="100%" height="500"> </iframe>
+
 
 **Activity**
 *Can you adapt the code to retrieve all the observations of Chinstrap penguins from 2007 (remember that species contains character units)* 
@@ -222,9 +229,12 @@ dplyr::filter(penguins, year == 2007 & species == "Chinstrap")
 ```
 
 ```{r, echo=F}
-# you just need to utilize & and type the logical operator for the species
-dplyr::filter(penguins, year == 2007 & species == "Chinstrap") %>% DT::datatable() %>% widgetframe::frameWidget()
+wid <- dplyr::filter(penguins, year == 2007 & species == "Chinstrap") %>% DT::datatable()
+htmlwidgets::saveWidget(wid, file = "wid4.html", selfcontained = TRUE)
 ```
+
+<iframe src="../wid4.html" width="100%" height="500"> </iframe>
+
 
 `r blogdown::shortcode("/spoiler")`
 
@@ -261,12 +271,15 @@ penguins %>% #we start off with out df
   dplyr::select(species, sex, year) #select
 ```
 
-
-```{r, echo=FALSE}
-penguins %>%
-  dplyr::filter(year == 2009 & species == "Chinstrap") %>%
-  dplyr::select(species, sex, year)  %>% DT::datatable() %>% widgetframe::frameWidget()
+```{r, echo=F}
+wid <- penguins %>% #we start off with out df
+  dplyr::filter(year == 2009 & species == "Chinstrap") %>% #filter
+  dplyr::select(species, sex, year) %>% DT::datatable()
+htmlwidgets::saveWidget(wid, file = "wid5.html", selfcontained = TRUE)
 ```
+
+<iframe src="../wid5.html" width="100%" height="500"> </iframe>
+
 
 `r blogdown::shortcode("/spoiler")`
 
@@ -291,10 +304,13 @@ penguins %>%
 ```
 
 ```{r, echo=F}
-penguins %>%
-  dplyr::mutate(body_mass_lbs = body_mass_g/453.6) %>%
-  dplyr::select(species, sex, year)  %>% DT::datatable() %>% widgetframe::frameWidget()
+wid <- penguins %>%
+  dplyr::mutate(body_mass_lbs = body_mass_g/453.6) %>% DT::datatable()
+htmlwidgets::saveWidget(wid, file = "wid6.html", selfcontained = TRUE)
 ```
+
+<iframe src="../wid6.html" width="100%" height="500"> </iframe>
+
 
 
 `r blogdown::shortcode("spoiler", text = "Answer")`
@@ -304,11 +320,13 @@ penguins %>%
   dplyr::mutate(body_mass_kg = body_mass_g/1000) #grams divided by 1000 
 ```
 
-```{r}
-penguins %>%
-  dplyr::mutate(body_mass_kg = body_mass_g/1000) %>%
-  dplyr::select(species, sex, year) %>% DT::datatable() %>% widgetframe::frameWidget()
+```{r, echo=F}
+wid <- penguins %>%
+  dplyr::mutate(body_mass_kg = body_mass_g/1000) %>% DT::datatable()
+htmlwidgets::saveWidget(wid, file = "wid7.html", selfcontained = TRUE)
 ```
+
+<iframe src="../wid7.html" width="100%" height="500"> </iframe>
 
 `r blogdown::shortcode("/spoiler")`
 
@@ -328,8 +346,11 @@ penguins %>%
 
 ```{r, echo=F}
 penguins %>%
-  dplyr::summarize(heaviest_penguin = max(body_mass_g, na.rm = T)) %>% DT::datatable() %>% widgetframe::frameWidget()
+  dplyr::summarize(heaviest_penguin = max(body_mass_g, na.rm = T)) %>% 
+  knitr::kable() %>% kableExtra::kable_styling()
 ```
+
+
 
 - `group_by()` + `summarize()`:
 
@@ -342,8 +363,11 @@ penguins %>%
 ```{r, echo=F}
 penguins %>%
   dplyr::group_by(species) %>%
-  dplyr::summarize(heaviest_penguin = max(body_mass_g, na.rm = T)) %>% DT::datatable() %>% widgetframe::frameWidget()
+  dplyr::summarize(heaviest_penguin = max(body_mass_g, na.rm = T)) %>% 
+  knitr::kable() %>% kableExtra::kable_styling()
 ```
+
+
 
 **Activity**
 *Can you get the weight of the lightest penguin of each species? You can use `min()`. What happens when in addition to species you also group by year `group_by(species, year)`?*
@@ -359,8 +383,10 @@ penguins %>%
 ```{r, echo=F}
 penguins %>%
   dplyr::group_by(species) %>%
-  dplyr::summarize(lightest_penguin = min(body_mass_g, na.rm = T)) %>% DT::datatable() %>% widgetframe::frameWidget()
+  dplyr::summarize(lightest_penguin = min(body_mass_g, na.rm = T)) %>% 
+  knitr::kable() %>% kableExtra::kable_styling()
 ```
+
 
 ```r
 penguins %>%
@@ -369,10 +395,12 @@ penguins %>%
 ```
 
 ```{r, echo=F}
-penguins %>%
+wid <- penguins %>%
   dplyr::group_by(species, year) %>%
-  dplyr::summarize(lightest_penguin = max(body_mass_g, na.rm = T)) %>% DT::datatable() %>% widgetframe::frameWidget()
+  dplyr::summarize(lightest_penguin = min(body_mass_g, na.rm = T)) %>% 
+  knitr::kable() %>% kableExtra::kable_styling()
 ```
+
 
 `r blogdown::shortcode("/spoiler")`
 
@@ -392,9 +420,13 @@ penguins %>%
 ```
 
 ```{r, echo=F}
-penguins %>%
-  dplyr::arrange(bill_length_mm) %>% DT::datatable() %>% widgetframe::frameWidget()
+wid <- penguins %>%
+  dplyr::arrange(bill_length_mm) %>% DT::datatable()
+htmlwidgets::saveWidget(wid, file = "wid12.html", selfcontained = TRUE)
 ```
+
+<iframe src="../wid12.html" width="100%" height="500"> </iframe>
+
 
 ```r
 penguins %>%
@@ -402,9 +434,13 @@ penguins %>%
 ```
 
 ```{r, echo=F}
-penguins %>%
-  dplyr::arrange(desc(bill_length_mm)) %>% DT::datatable() %>% widgetframe::frameWidget()
+wid <- penguins %>%
+  dplyr::arrange(desc(bill_length_mm)) %>% DT::datatable()
+htmlwidgets::saveWidget(wid, file = "wid13.html", selfcontained = TRUE)
 ```
+
+<iframe src="../wid13.html" width="100%" height="500"> </iframe>
+
 
 **Activity**
 *Can you create a data frame arranged by body_mass_g of the penguins observed in the "Dream" island?*
@@ -417,10 +453,13 @@ penguins %>%
   dplyr::arrange(desc(body_mass_g)) 
 ```
 
-```{r}
-penguins %>%
+```{r, echo=F}
+wid <- penguins %>%
   dplyr::filter(island == "Dream") %>%
-  dplyr::arrange(desc(body_mass_g)) %>% DT::datatable() %>% widgetframe::frameWidget()
+  dplyr::arrange(desc(body_mass_g)) %>% DT::datatable()
+htmlwidgets::saveWidget(wid, file = "wid14.html", selfcontained = TRUE)
 ```
+
+<iframe src="../wid14.html" width="100%" height="500"> </iframe>
 
 `r blogdown::shortcode("/spoiler")`
