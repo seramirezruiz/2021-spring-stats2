@@ -5,7 +5,7 @@ role: Research Associate
 social:
 - icon: globe
   icon_pack: fas
-  link: https://lfoswald.github.io/
+  link: https://seramirezruiz.github.io/
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/seramirezruiz
