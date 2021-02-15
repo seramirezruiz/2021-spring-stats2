@@ -153,7 +153,7 @@ We have already extracted the ite with `mutate()`. We know that the the ATE is t
 
 prejudice_df %>%
   dplyr::mutate(ite = prej_1 - prej_0) %>%
-  dplyr::summarize(mean(ite))
+  dplyr::summarize(ate=mean(ite))
 ```
 
 ```{r}
@@ -162,7 +162,7 @@ prejudice_df %>%
 
 prejudice_df %>%
   dplyr::mutate(ite = prej_1 - prej_0) %>%
-  dplyr::summarize(mean(ite)) %>% knitr::kable() %>% kableExtra::kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
+  dplyr::summarize(ate=mean(ite)) %>% knitr::kable() %>% kableExtra::kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
 ```
 
 `r blogdown::shortcode("/spoiler")`
@@ -177,36 +177,36 @@ The average treatment effect on the treated **ATT** is defined as the difference
 $$ATT = E(Y_{1i}-Y_{0i} | D = 1)$$
 
 The average treatment effect on the control **ATC** is defined as the difference in the average potential outcomes for those subjects who were not treated:
-$$ATU = E(Y_{1i}-Y_{0i} | D = 0)$$
+$$ATC = E(Y_{1i}-Y_{0i} | D = 0)$$
 
 **Exercise:** *Since our data are coming from a world with perfect information. Can you think of a way to calculate the* **ATT** *and* **ATC** *for the eight students based on what we learned last week?*
 
 `r blogdown::shortcode("spoiler", text = "Hint")`
 
-We have already extracted the ite with `mutate()`. We know that the ATT and ATU are the average of every subject's ITE grouped by their treatment status. Do you remember how the combination of `group_by()` and `summarize()` worked?
+We have already extracted the ite with `mutate()`. We know that the ATT and ATC are the average of every subject's ITE grouped by their treatment status. Do you remember how the combination of `group_by()` and `summarize()` worked?
 
 `r blogdown::shortcode("/spoiler")`
 
 `r blogdown::shortcode("spoiler", text = "Answer")`
 
 ```r
-#we know that the ATT and ATU are the average of every subject's ITE grouped by their treatment status. Do you remember how the combination of dplyr::group_by() and dplyr::summarize() worked?
+#we know that the ATT and ATC are the average of every subject's ITE grouped by their treatment status. Do you remember how the combination of dplyr::group_by() and dplyr::summarize() worked?
 #how can we use the verbs from last week to get the average treatment effect on the treated and untreated?
 
 prejudice_df %>%
   dplyr::mutate(ite = prej_1 - prej_0) %>%
   dplyr::group_by(dorm_type) %>%
-  dplyr::summarize(mean(ite))
+  dplyr::summarize(treatment_effects=mean(ite))
 ```
 
 ```{r, echo=F}
-#we know that the ATT and ATU are the average of every subject's ITE grouped by their treatment status. Do you remember how the combination of dplyr::group_by() and dplyr::summarize() worked?
+#we know that the ATT and ATC are the average of every subject's ITE grouped by their treatment status. Do you remember how the combination of dplyr::group_by() and dplyr::summarize() worked?
 #how can we use the verbs from last week to get the average treatment effect on the treated and untreated?
 
 prejudice_df %>%
   dplyr::mutate(ite = prej_1 - prej_0) %>%
   dplyr::group_by(dorm_type) %>%
-  dplyr::summarize(mean(ite)) %>% knitr::kable() %>% kableExtra::kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
+  dplyr::summarize(treatment_effects=mean(ite)) %>% knitr::kable() %>% kableExtra::kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
 ```
 
 `r blogdown::shortcode("/spoiler")`
@@ -224,7 +224,7 @@ knitr::include_graphics("https://user-images.githubusercontent.com/54796579/9301
 
 `r blogdown::shortcode("callout note")`
 
-The **Näive Average Treatment Effect (NATE)** is the calculation we can compute based on the observed outcomes.
+The **Naive Average Treatment Effect (NATE)** is the calculation we can compute based on the observed outcomes.
 
 `r blogdown::shortcode("/callout")`
 
@@ -262,6 +262,8 @@ prejudice_df %>%
   dplyr::mutate(observed_prej = ifelse(dorm_type == 1, prej_1, prej_0)) %>%
   dplyr::group_by(dorm_type) %>%
   dplyr::summarize(mean(observed_prej))
+  
+#You can just substract the values
 ```
 
 ```{r}
@@ -273,6 +275,9 @@ prejudice_df %>%
   dplyr::summarize(mean(observed_prej)) %>% knitr::kable() %>% kableExtra::kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
   
 ```
+
+**You can just substract the values**
+
 
 `r blogdown::shortcode("/spoiler")`
 
@@ -302,31 +307,31 @@ knitr::include_graphics("https://user-images.githubusercontent.com/54796579/9301
 
 ---
 
-## Selection bias
+## Baseline bias
 
-Selection bias is difference in expected outcomes in the absence of treatment for the actual treatment and control group. In other words, these are the underlying differences that individuals in either group start off with.
+Baseline bias—also known as selection bias— is difference in expected outcomes in the absence of treatment for the actual treatment and control group. In other words, these are the underlying differences that individuals in either group start off with.
 
 ---
 
-## Heterogeneous Treatment Effect (HTE) bias
+## Differential treatment effect bias
 
-Heterogeneous Treatment Effect (HTE) bias is the difference in returns to treatment (the treatment effect) between the treatment and control group, multiplied by the share of the population in control. In other words, this type of bias relates to the dissimilarities stemming for ways in which individuals in either group are affected differently by the treatment. 
+Differential treatment effect bias — also known as Heterogeneous Treatment Effect (HTE) bias — is the difference in returns to treatment (the treatment effect) between the treatment and control group, multiplied by the share of the population in control. In other words, this type of bias relates to the dissimilarities stemming for ways in which individuals in either group are affected differently by the treatment. 
 
 **We will let you think about these for the mock assignment**
 
-**Exercise:** *Since our data are coming from a world with perfect information. Can you think of a way to explore the existence* **selection bias** *in our data?*
+**Exercise:** *Since our data are coming from a world with perfect information. Can you think of a way to explore the existence* **baseline bias** *in our data?*
 
 `r blogdown::shortcode("spoiler", text = "Hint")`
 
-We know that the selection bias is the difference in average observed outcomes under control grouped by their treatment status. Do you remember how the combination of dplyr::group_by() and dplyr::summarize() worked?
+We know that the baseline bias is the difference in average observed outcomes under control grouped by their treatment status. Do you remember how the combination of dplyr::group_by() and dplyr::summarize() worked?
 
 `r blogdown::shortcode("/spoiler")`
 
 
-**Exercise:** *Since our data are coming from a world with perfect information. Can you think of a way to explore the existence* **HTE bias** *in our data?*
+**Exercise:** *Since our data are coming from a world with perfect information. Can you think of a way to explore the existence* **differential treatment effect bias** *in our data?*
 
 `r blogdown::shortcode("spoiler", text = "Hint")`
 
-We know that the HTE bias is the difference in difference in the average of every subject's ITE grouped by their treatment status (or the difference between ATT and ATCs). Maybe you can go back an check how to get the average treatment effect on the treated and untreated.
+We know that the differential treatment effect bias is the difference in difference in the average of every subject's ITE grouped by their treatment status (or the difference between ATT and ATCs). Maybe you can go back an check how to get the average treatment effect on the treated and untreated.
 
 `r blogdown::shortcode("/spoiler")`

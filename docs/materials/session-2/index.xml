@@ -734,12 +734,12 @@ ite
 
 prejudice_df %&amp;gt;%
   dplyr::mutate(ite = prej_1 - prej_0) %&amp;gt;%
-  dplyr::summarize(mean(ite))&lt;/code&gt;&lt;/pre&gt;
+  dplyr::summarize(ate=mean(ite))&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th style=&#34;text-align:right;&#34;&gt;
-mean(ite)
+ate
 &lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
@@ -759,21 +759,21 @@ mean(ite)
 &lt;h2&gt;The Average Treatment Effect Among the Treated and Control (ATT) and (ATC)&lt;/h2&gt;
 &lt;p&gt;The names for these two estimates are very self-explanatory. These two estimates are simply the average treatment effects conditional on the group subjects are assigned to.&lt;/p&gt;
 &lt;p&gt;The average treatment effect on the treated &lt;strong&gt;ATT&lt;/strong&gt; is defined as the difference in the average potential outcomes for those subjects who were treated: &lt;span class=&#34;math display&#34;&gt;\[ATT = E(Y_{1i}-Y_{0i} | D = 1)\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;The average treatment effect on the control &lt;strong&gt;ATC&lt;/strong&gt; is defined as the difference in the average potential outcomes for those subjects who were not treated: &lt;span class=&#34;math display&#34;&gt;\[ATU = E(Y_{1i}-Y_{0i} | D = 0)\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The average treatment effect on the control &lt;strong&gt;ATC&lt;/strong&gt; is defined as the difference in the average potential outcomes for those subjects who were not treated: &lt;span class=&#34;math display&#34;&gt;\[ATC = E(Y_{1i}-Y_{0i} | D = 0)\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Exercise:&lt;/strong&gt; &lt;em&gt;Since our data are coming from a world with perfect information. Can you think of a way to calculate the&lt;/em&gt; &lt;strong&gt;ATT&lt;/strong&gt; &lt;em&gt;and&lt;/em&gt; &lt;strong&gt;ATC&lt;/strong&gt; &lt;em&gt;for the eight students based on what we learned last week?&lt;/em&gt;&lt;/p&gt;
 &lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-5&#34;&gt;
   &lt;summary&gt;Hint&lt;/summary&gt;
-  &lt;p&gt;We have already extracted the ite with &lt;code&gt;mutate()&lt;/code&gt;. We know that the ATT and ATU are the average of every subject&#39;s ITE grouped by their treatment status. Do you remember how the combination of &lt;code&gt;group_by()&lt;/code&gt; and &lt;code&gt;summarize()&lt;/code&gt; worked?&lt;/p&gt;
+  &lt;p&gt;We have already extracted the ite with &lt;code&gt;mutate()&lt;/code&gt;. We know that the ATT and ATC are the average of every subject&#39;s ITE grouped by their treatment status. Do you remember how the combination of &lt;code&gt;group_by()&lt;/code&gt; and &lt;code&gt;summarize()&lt;/code&gt; worked?&lt;/p&gt;
 &lt;/details&gt;
 &lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-6&#34;&gt;
   &lt;summary&gt;Answer&lt;/summary&gt;
-  &lt;p&gt;&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#we know that the ATT and ATU are the average of every subject&amp;#39;s ITE grouped by their treatment status. Do you remember how the combination of dplyr::group_by() and dplyr::summarize() worked?
+  &lt;p&gt;&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#we know that the ATT and ATC are the average of every subject&amp;#39;s ITE grouped by their treatment status. Do you remember how the combination of dplyr::group_by() and dplyr::summarize() worked?
 #how can we use the verbs from last week to get the average treatment effect on the treated and untreated?
 
 prejudice_df %&amp;gt;%
   dplyr::mutate(ite = prej_1 - prej_0) %&amp;gt;%
   dplyr::group_by(dorm_type) %&amp;gt;%
-  dplyr::summarize(mean(ite))&lt;/code&gt;&lt;/pre&gt;
+  dplyr::summarize(treatment_effects=mean(ite))&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -781,7 +781,7 @@ prejudice_df %&amp;gt;%
 dorm_type
 &lt;/th&gt;
 &lt;th style=&#34;text-align:right;&#34;&gt;
-mean(ite)
+treatment_effects
 &lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
@@ -814,7 +814,7 @@ mean(ite)
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/93014681-527b8800-f5b3-11ea-98f2-200e42f49bd4.png&#34; width=&#34;65%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
-    The &lt;strong&gt;Näive Average Treatment Effect (NATE)&lt;/strong&gt; is the calculation we can compute based on the observed outcomes.
+    The &lt;strong&gt;Naive Average Treatment Effect (NATE)&lt;/strong&gt; is the calculation we can compute based on the observed outcomes.
   &lt;/div&gt;
 &lt;/div&gt;
 
@@ -992,7 +992,9 @@ observed_prej
 prejudice_df %&amp;gt;%
   dplyr::mutate(observed_prej = ifelse(dorm_type == 1, prej_1, prej_0)) %&amp;gt;%
   dplyr::group_by(dorm_type) %&amp;gt;%
-  dplyr::summarize(mean(observed_prej))&lt;/code&gt;&lt;/pre&gt;
+  dplyr::summarize(mean(observed_prej))
+  
+#You can just substract the values&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1023,6 +1025,7 @@ mean(observed_prej)
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;You can just substract the values&lt;/strong&gt;&lt;/p&gt;
 &lt;/p&gt;
 &lt;/details&gt;
 &lt;hr /&gt;
@@ -1041,24 +1044,24 @@ mean(observed_prej)
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/93015117-13e7cc80-f5b7-11ea-8281-dde25922a883.png&#34; width=&#34;65%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;/div&gt;
-&lt;div id=&#34;selection-bias&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Selection bias&lt;/h2&gt;
-&lt;p&gt;Selection bias is difference in expected outcomes in the absence of treatment for the actual treatment and control group. In other words, these are the underlying differences that individuals in either group start off with.&lt;/p&gt;
+&lt;div id=&#34;baseline-bias&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Baseline bias&lt;/h2&gt;
+&lt;p&gt;Baseline bias—also known as selection bias— is difference in expected outcomes in the absence of treatment for the actual treatment and control group. In other words, these are the underlying differences that individuals in either group start off with.&lt;/p&gt;
 &lt;hr /&gt;
 &lt;/div&gt;
-&lt;div id=&#34;heterogeneous-treatment-effect-hte-bias&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Heterogeneous Treatment Effect (HTE) bias&lt;/h2&gt;
-&lt;p&gt;Heterogeneous Treatment Effect (HTE) bias is the difference in returns to treatment (the treatment effect) between the treatment and control group, multiplied by the share of the population in control. In other words, this type of bias relates to the dissimilarities stemming for ways in which individuals in either group are affected differently by the treatment.&lt;/p&gt;
+&lt;div id=&#34;differential-treatment-effect-bias&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Differential treatment effect bias&lt;/h2&gt;
+&lt;p&gt;Differential treatment effect bias — also known as Heterogeneous Treatment Effect (HTE) bias — is the difference in returns to treatment (the treatment effect) between the treatment and control group, multiplied by the share of the population in control. In other words, this type of bias relates to the dissimilarities stemming for ways in which individuals in either group are affected differently by the treatment.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;We will let you think about these for the mock assignment&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Exercise:&lt;/strong&gt; &lt;em&gt;Since our data are coming from a world with perfect information. Can you think of a way to explore the existence&lt;/em&gt; &lt;strong&gt;selection bias&lt;/strong&gt; &lt;em&gt;in our data?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exercise:&lt;/strong&gt; &lt;em&gt;Since our data are coming from a world with perfect information. Can you think of a way to explore the existence&lt;/em&gt; &lt;strong&gt;baseline bias&lt;/strong&gt; &lt;em&gt;in our data?&lt;/em&gt;&lt;/p&gt;
 &lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-10&#34;&gt;
   &lt;summary&gt;Hint&lt;/summary&gt;
-  &lt;p&gt;We know that the selection bias is the difference in average observed outcomes under control grouped by their treatment status. Do you remember how the combination of dplyr::group_by() and dplyr::summarize() worked?&lt;/p&gt;
+  &lt;p&gt;We know that the baseline bias is the difference in average observed outcomes under control grouped by their treatment status. Do you remember how the combination of dplyr::group_by() and dplyr::summarize() worked?&lt;/p&gt;
 &lt;/details&gt;
-&lt;p&gt;&lt;strong&gt;Exercise:&lt;/strong&gt; &lt;em&gt;Since our data are coming from a world with perfect information. Can you think of a way to explore the existence&lt;/em&gt; &lt;strong&gt;HTE bias&lt;/strong&gt; &lt;em&gt;in our data?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exercise:&lt;/strong&gt; &lt;em&gt;Since our data are coming from a world with perfect information. Can you think of a way to explore the existence&lt;/em&gt; &lt;strong&gt;differential treatment effect bias&lt;/strong&gt; &lt;em&gt;in our data?&lt;/em&gt;&lt;/p&gt;
 &lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-11&#34;&gt;
   &lt;summary&gt;Hint&lt;/summary&gt;
-  &lt;p&gt;We know that the HTE bias is the difference in difference in the average of every subject&#39;s ITE grouped by their treatment status (or the difference between ATT and ATCs). Maybe you can go back an check how to get the average treatment effect on the treated and untreated.&lt;/p&gt;
+  &lt;p&gt;We know that the differential treatment effect bias is the difference in difference in the average of every subject&#39;s ITE grouped by their treatment status (or the difference between ATT and ATCs). Maybe you can go back an check how to get the average treatment effect on the treated and untreated.&lt;/p&gt;
 &lt;/details&gt;
 &lt;/div&gt;
 &lt;/div&gt;

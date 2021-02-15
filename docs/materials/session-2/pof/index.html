@@ -960,12 +960,12 @@ ite
 
 prejudice_df %&gt;%
   dplyr::mutate(ite = prej_1 - prej_0) %&gt;%
-  dplyr::summarize(mean(ite))</code></pre>
+  dplyr::summarize(ate=mean(ite))</code></pre>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:right;">
-mean(ite)
+ate
 </th>
 </tr>
 </thead>
@@ -985,21 +985,21 @@ mean(ite)
 <h2>The Average Treatment Effect Among the Treated and Control (ATT) and (ATC)</h2>
 <p>The names for these two estimates are very self-explanatory. These two estimates are simply the average treatment effects conditional on the group subjects are assigned to.</p>
 <p>The average treatment effect on the treated <strong>ATT</strong> is defined as the difference in the average potential outcomes for those subjects who were treated: <span class="math display">\[ATT = E(Y_{1i}-Y_{0i} | D = 1)\]</span></p>
-<p>The average treatment effect on the control <strong>ATC</strong> is defined as the difference in the average potential outcomes for those subjects who were not treated: <span class="math display">\[ATU = E(Y_{1i}-Y_{0i} | D = 0)\]</span></p>
+<p>The average treatment effect on the control <strong>ATC</strong> is defined as the difference in the average potential outcomes for those subjects who were not treated: <span class="math display">\[ATC = E(Y_{1i}-Y_{0i} | D = 0)\]</span></p>
 <p><strong>Exercise:</strong> <em>Since our data are coming from a world with perfect information. Can you think of a way to calculate the</em> <strong>ATT</strong> <em>and</em> <strong>ATC</strong> <em>for the eight students based on what we learned last week?</em></p>
 <details class="spoiler "  id="spoiler-5">
   <summary>Hint</summary>
-  <p>We have already extracted the ite with <code>mutate()</code>. We know that the ATT and ATU are the average of every subject's ITE grouped by their treatment status. Do you remember how the combination of <code>group_by()</code> and <code>summarize()</code> worked?</p>
+  <p>We have already extracted the ite with <code>mutate()</code>. We know that the ATT and ATC are the average of every subject's ITE grouped by their treatment status. Do you remember how the combination of <code>group_by()</code> and <code>summarize()</code> worked?</p>
 </details>
 <details class="spoiler "  id="spoiler-6">
   <summary>Answer</summary>
-  <p><pre class="r"><code>#we know that the ATT and ATU are the average of every subject&#39;s ITE grouped by their treatment status. Do you remember how the combination of dplyr::group_by() and dplyr::summarize() worked?
+  <p><pre class="r"><code>#we know that the ATT and ATC are the average of every subject&#39;s ITE grouped by their treatment status. Do you remember how the combination of dplyr::group_by() and dplyr::summarize() worked?
 #how can we use the verbs from last week to get the average treatment effect on the treated and untreated?
 
 prejudice_df %&gt;%
   dplyr::mutate(ite = prej_1 - prej_0) %&gt;%
   dplyr::group_by(dorm_type) %&gt;%
-  dplyr::summarize(mean(ite))</code></pre>
+  dplyr::summarize(treatment_effects=mean(ite))</code></pre>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1007,7 +1007,7 @@ prejudice_df %&gt;%
 dorm_type
 </th>
 <th style="text-align:right;">
-mean(ite)
+treatment_effects
 </th>
 </tr>
 </thead>
@@ -1040,7 +1040,7 @@ mean(ite)
 <p><img src="https://user-images.githubusercontent.com/54796579/93014681-527b8800-f5b3-11ea-98f2-200e42f49bd4.png" width="65%" style="display: block; margin: auto;" /></p>
 <div class="alert alert-note">
   <div>
-    The <strong>Näive Average Treatment Effect (NATE)</strong> is the calculation we can compute based on the observed outcomes.
+    The <strong>Naive Average Treatment Effect (NATE)</strong> is the calculation we can compute based on the observed outcomes.
   </div>
 </div>
 
@@ -1218,7 +1218,9 @@ observed_prej
 prejudice_df %&gt;%
   dplyr::mutate(observed_prej = ifelse(dorm_type == 1, prej_1, prej_0)) %&gt;%
   dplyr::group_by(dorm_type) %&gt;%
-  dplyr::summarize(mean(observed_prej))</code></pre>
+  dplyr::summarize(mean(observed_prej))
+  
+#You can just substract the values</code></pre>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1249,6 +1251,7 @@ mean(observed_prej)
 </tr>
 </tbody>
 </table>
+<p><strong>You can just substract the values</strong></p>
 </p>
 </details>
 <hr />
@@ -1267,24 +1270,24 @@ mean(observed_prej)
 <p><img src="https://user-images.githubusercontent.com/54796579/93015117-13e7cc80-f5b7-11ea-8281-dde25922a883.png" width="65%" style="display: block; margin: auto;" /></p>
 <hr />
 </div>
-<div id="selection-bias" class="section level2">
-<h2>Selection bias</h2>
-<p>Selection bias is difference in expected outcomes in the absence of treatment for the actual treatment and control group. In other words, these are the underlying differences that individuals in either group start off with.</p>
+<div id="baseline-bias" class="section level2">
+<h2>Baseline bias</h2>
+<p>Baseline bias—also known as selection bias— is difference in expected outcomes in the absence of treatment for the actual treatment and control group. In other words, these are the underlying differences that individuals in either group start off with.</p>
 <hr />
 </div>
-<div id="heterogeneous-treatment-effect-hte-bias" class="section level2">
-<h2>Heterogeneous Treatment Effect (HTE) bias</h2>
-<p>Heterogeneous Treatment Effect (HTE) bias is the difference in returns to treatment (the treatment effect) between the treatment and control group, multiplied by the share of the population in control. In other words, this type of bias relates to the dissimilarities stemming for ways in which individuals in either group are affected differently by the treatment.</p>
+<div id="differential-treatment-effect-bias" class="section level2">
+<h2>Differential treatment effect bias</h2>
+<p>Differential treatment effect bias — also known as Heterogeneous Treatment Effect (HTE) bias — is the difference in returns to treatment (the treatment effect) between the treatment and control group, multiplied by the share of the population in control. In other words, this type of bias relates to the dissimilarities stemming for ways in which individuals in either group are affected differently by the treatment.</p>
 <p><strong>We will let you think about these for the mock assignment</strong></p>
-<p><strong>Exercise:</strong> <em>Since our data are coming from a world with perfect information. Can you think of a way to explore the existence</em> <strong>selection bias</strong> <em>in our data?</em></p>
+<p><strong>Exercise:</strong> <em>Since our data are coming from a world with perfect information. Can you think of a way to explore the existence</em> <strong>baseline bias</strong> <em>in our data?</em></p>
 <details class="spoiler "  id="spoiler-10">
   <summary>Hint</summary>
-  <p>We know that the selection bias is the difference in average observed outcomes under control grouped by their treatment status. Do you remember how the combination of dplyr::group_by() and dplyr::summarize() worked?</p>
+  <p>We know that the baseline bias is the difference in average observed outcomes under control grouped by their treatment status. Do you remember how the combination of dplyr::group_by() and dplyr::summarize() worked?</p>
 </details>
-<p><strong>Exercise:</strong> <em>Since our data are coming from a world with perfect information. Can you think of a way to explore the existence</em> <strong>HTE bias</strong> <em>in our data?</em></p>
+<p><strong>Exercise:</strong> <em>Since our data are coming from a world with perfect information. Can you think of a way to explore the existence</em> <strong>differential treatment effect bias</strong> <em>in our data?</em></p>
 <details class="spoiler "  id="spoiler-11">
   <summary>Hint</summary>
-  <p>We know that the HTE bias is the difference in difference in the average of every subject's ITE grouped by their treatment status (or the difference between ATT and ATCs). Maybe you can go back an check how to get the average treatment effect on the treated and untreated.</p>
+  <p>We know that the differential treatment effect bias is the difference in difference in the average of every subject's ITE grouped by their treatment status (or the difference between ATT and ATCs). Maybe you can go back an check how to get the average treatment effect on the treated and untreated.</p>
 </details>
 </div>
 </div>
