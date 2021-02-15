@@ -759,7 +759,7 @@ ate
 &lt;h2&gt;The Average Treatment Effect Among the Treated and Control (ATT) and (ATC)&lt;/h2&gt;
 &lt;p&gt;The names for these two estimates are very self-explanatory. These two estimates are simply the average treatment effects conditional on the group subjects are assigned to.&lt;/p&gt;
 &lt;p&gt;The average treatment effect on the treated &lt;strong&gt;ATT&lt;/strong&gt; is defined as the difference in the average potential outcomes for those subjects who were treated: &lt;span class=&#34;math display&#34;&gt;\[ATT = E(Y_{1i}-Y_{0i} | D = 1)\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;The average treatment effect on the control &lt;strong&gt;ATC&lt;/strong&gt; is defined as the difference in the average potential outcomes for those subjects who were not treated: &lt;span class=&#34;math display&#34;&gt;\[ATC = E(Y_{1i}-Y_{0i} | D = 0)\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The average treatment effect under control &lt;strong&gt;ATC&lt;/strong&gt; is defined as the difference in the average potential outcomes for those subjects who were not treated: &lt;span class=&#34;math display&#34;&gt;\[ATC = E(Y_{1i}-Y_{0i} | D = 0)\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Exercise:&lt;/strong&gt; &lt;em&gt;Since our data are coming from a world with perfect information. Can you think of a way to calculate the&lt;/em&gt; &lt;strong&gt;ATT&lt;/strong&gt; &lt;em&gt;and&lt;/em&gt; &lt;strong&gt;ATC&lt;/strong&gt; &lt;em&gt;for the eight students based on what we learned last week?&lt;/em&gt;&lt;/p&gt;
 &lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-5&#34;&gt;
   &lt;summary&gt;Hint&lt;/summary&gt;

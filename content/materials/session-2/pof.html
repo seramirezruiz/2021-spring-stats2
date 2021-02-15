@@ -317,7 +317,7 @@ ate
 <h2>The Average Treatment Effect Among the Treated and Control (ATT) and (ATC)</h2>
 <p>The names for these two estimates are very self-explanatory. These two estimates are simply the average treatment effects conditional on the group subjects are assigned to.</p>
 <p>The average treatment effect on the treated <strong>ATT</strong> is defined as the difference in the average potential outcomes for those subjects who were treated: <span class="math display">\[ATT = E(Y_{1i}-Y_{0i} | D = 1)\]</span></p>
-<p>The average treatment effect on the control <strong>ATC</strong> is defined as the difference in the average potential outcomes for those subjects who were not treated: <span class="math display">\[ATC = E(Y_{1i}-Y_{0i} | D = 0)\]</span></p>
+<p>The average treatment effect under control <strong>ATC</strong> is defined as the difference in the average potential outcomes for those subjects who were not treated: <span class="math display">\[ATC = E(Y_{1i}-Y_{0i} | D = 0)\]</span></p>
 <p><strong>Exercise:</strong> <em>Since our data are coming from a world with perfect information. Can you think of a way to calculate the</em> <strong>ATT</strong> <em>and</em> <strong>ATC</strong> <em>for the eight students based on what we learned last week?</em></p>
 {{% spoiler text="Hint" %}}
 <p>We have already extracted the ite with <code>mutate()</code>. We know that the ATT and ATC are the average of every subject's ITE grouped by their treatment status. Do you remember how the combination of <code>group_by()</code> and <code>summarize()</code> worked?</p>

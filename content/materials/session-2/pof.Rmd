@@ -176,7 +176,7 @@ The names for these two estimates are very self-explanatory. These two estimates
 The average treatment effect on the treated **ATT** is defined as the difference in the average potential outcomes for those subjects who were treated:
 $$ATT = E(Y_{1i}-Y_{0i} | D = 1)$$
 
-The average treatment effect on the control **ATC** is defined as the difference in the average potential outcomes for those subjects who were not treated:
+The average treatment effect under control **ATC** is defined as the difference in the average potential outcomes for those subjects who were not treated:
 $$ATC = E(Y_{1i}-Y_{0i} | D = 0)$$
 
 **Exercise:** *Since our data are coming from a world with perfect information. Can you think of a way to calculate the* **ATT** *and* **ATC** *for the eight students based on what we learned last week?*
