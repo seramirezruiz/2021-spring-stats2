@@ -297,7 +297,7 @@
   
   <meta property="og:site_name" content="| Tutorials - Spring 2021 |" />
   <meta property="og:url" content="https://seramirezruiz.github.io/2021-spring-stats2/materials/session-3/03-online-tutorial/" />
-  <meta property="og:title" content="Basics of Data Visualization | | Tutorials - Spring 2021 |" />
+  <meta property="og:title" content="Basics of Data Visualization and DAGs in R | | Tutorials - Spring 2021 |" />
   <meta property="og:description" content="# Load packages. Install them first, in case you don&#39;t have them yet. library(palmerpenguins) # To get our example&#39;s dataset library(tidyverse) # To use dplyr functions and the pipe operator when needed library(ggplot2) # To visualize data (this package is also loaded by library(tidyverse)) library(ggdag) # To create our DAGs Welcome This week&#39;s tutorial will be divided in two broader camps." /><meta property="og:image" content="https://seramirezruiz.github.io/2021-spring-stats2/images/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_2.png" />
     <meta property="twitter:image" content="https://seramirezruiz.github.io/2021-spring-stats2/images/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_2.png" /><meta property="og:locale" content="en-us" />
   
@@ -319,7 +319,7 @@
 
 
 
-  <title>Basics of Data Visualization | | Tutorials - Spring 2021 |</title>
+  <title>Basics of Data Visualization and DAGs in R | | Tutorials - Spring 2021 |</title>
 </head>
 
 
@@ -513,7 +513,7 @@
     <div class="d-flex">
       <span class="d-md-none pl-1 flex-grow-1 text-left overflow-hidden">
         
-          Basics of DAGs
+          Dataviz and DAGs
         
       </span>
       <span><i class="fas fa-chevron-down"></i></span>
@@ -567,7 +567,7 @@
 
     
       <div class="docs-toc-item">
-        <a class="docs-toc-link " href="/2021-spring-stats2/materials/session-3/">Basics of DAGs</a>
+        <a class="docs-toc-link " href="/2021-spring-stats2/materials/session-3/">Dataviz and DAGs</a>
     
       
         <ul class="nav docs-sidenav">
@@ -578,7 +578,7 @@
 
 
 
-  <li class="active"><a href="/2021-spring-stats2/materials/session-3/03-online-tutorial/">Basics of Data Visualization</a></li>
+  <li class="active"><a href="/2021-spring-stats2/materials/session-3/03-online-tutorial/">Basics of Data Visualization and DAGs in R</a></li>
 
       
         </ul>
@@ -643,14 +643,14 @@
   <li class="breadcrumb-item">
     <a href="/2021-spring-stats2/materials/session-3/">
       
-        Basics of DAGs
+        Dataviz and DAGs
       
     </a>
   </li>
 
 
       <li class="breadcrumb-item active" aria-current="page">
-        Basics of Data Visualization
+        Basics of Data Visualization and DAGs in R
       </li>
     </ol>
   </nav>
@@ -658,7 +658,7 @@
 
           
 
-          <h1>Basics of Data Visualization</h1>
+          <h1>Basics of Data Visualization and DAGs in R</h1>
 
           <div class="article-style">
             
@@ -740,7 +740,11 @@ library(ggdag) # To create our DAGs</code></pre>
   geom_point()</code></pre>
 <p><img src="https://user-images.githubusercontent.com/54796579/108834786-e1fb7d00-75ce-11eb-8a23-81414b76c484.png" width="70%" style="display: block; margin: auto;" /></p>
 <hr />
-<p><strong>Exercise</strong>: Once we have our scatterplot. Can you think of a way to adapt the code to:</p>
+<b>
+<p style= "color: #9F24FF">
+EXERCISE:
+<p>
+<p></b> Once we have our scatterplot. Can you think of a way to adapt the code to:</p>
 <ul>
 <li><ol style="list-style-type: decimal">
 <li>convey another dimension through color, the species of penguin</li>
@@ -782,7 +786,11 @@ library(ggdag) # To create our DAGs</code></pre>
   geom_histogram()</code></pre>
 <p><img src="https://user-images.githubusercontent.com/54796579/108834871-f93a6a80-75ce-11eb-9a05-2161f6bad744.png" width="70%" style="display: block; margin: auto;" /></p>
 <hr />
-<p><strong>Exercise</strong>: Let's adapt the code of our histogram:</p>
+<b>
+<p style= "color: #9F24FF">
+EXERCISE:
+<p>
+<p></b> Let's adapt the code of our histogram:</p>
 <ul>
 <li><ol style="list-style-type: decimal">
 <li>add <code>bins = 15</code> argument (type different numbers)</li>
@@ -888,7 +896,11 @@ library(ggdag) # To create our DAGs</code></pre>
 ggdag::ggdag(our_dag)</code></pre>
 <p><img src="https://user-images.githubusercontent.com/54796579/108834887-fb9cc480-75ce-11eb-8ec0-a2c28143612e.png" width="70%" style="display: block; margin: auto;" /></p>
 <hr />
-<p><strong>Exercise</strong>: See what happens when you add <code>+ theme_minimal()</code>, <code>+ theme_void()</code>, or <code>+ theme_dag() to the DAG. What package do you think is laying behind the mappings of</code>ggdag`?</p>
+<b>
+<p style= "color: #9F24FF">
+EXERCISE:
+<p>
+<p></b> See what happens when you add <code>+ theme_minimal()</code>, <code>+ theme_void()</code>, or <code>+ theme_dag() to the DAG. What package do you think is laying behind the mappings of</code>ggdag`?</p>
 <details class="spoiler "  id="spoiler-2">
   <summary>Answer</summary>
   <p><pre class="r"><code>our_dag &lt;- ggdag::dagify(d ~ p,
@@ -981,7 +993,11 @@ ggdag::ggdag(our_dag) + theme_void()</code></pre>
 </div>
 <div id="section" class="section level2">
 <h2><img src="https://user-images.githubusercontent.com/54796579/108834894-fccdf180-75ce-11eb-89ef-d0e7ecf2719f.png" width="70%" style="display: block; margin: auto;" /></h2>
-<p><strong>Exercise</strong>: Let's adapt the code to make <strong>X</strong> a <strong>confounder</strong> and a <strong>collider</strong>.</p>
+<b>
+<p style= "color: #9F24FF">
+EXERCISE:
+<p>
+<p></b> Let's adapt the code to make <strong>X</strong> a <strong>confounder</strong> and a <strong>collider</strong>.</p>
 <details class="spoiler "  id="spoiler-3">
   <summary>Answer</summary>
   <p><ul>

@@ -1,6 +1,6 @@
 ---
 title: 📊 03 - Visualization and Directed Acyclic Graphs (DAGs)
-linkTitle: Basics of DAGs
+linkTitle: Dataviz and DAGs
 summary: Welcome to our tutorial about data visualization with `ggplot2` and DAGs
 date: '2021-02-23'
 type: book

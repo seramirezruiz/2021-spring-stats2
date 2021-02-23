@@ -1,5 +1,5 @@
 ---
-title: "Basics of Data Visualization"
+title: "Basics of Data Visualization and DAGs in R"
 subtitle: "Our first steps with `ggplot2` and `ggdag`"
 type: book
 weight: 5
@@ -137,7 +137,7 @@ knitr::include_graphics("https://user-images.githubusercontent.com/54796579/1088
 
 ---
 
-**Exercise**: Once we have our scatterplot. Can you think of a way to adapt the code to: 
+<b><p style= "color: #9F24FF"> EXERCISE: <p> </b> Once we have our scatterplot. Can you think of a way to adapt the code to: 
 
 * (1) convey another dimension through color, the species of penguin 
 * (2) change the axes names
@@ -187,7 +187,7 @@ knitr::include_graphics("https://user-images.githubusercontent.com/54796579/1088
 
 ---
 
-**Exercise**: Let's adapt the code of our histogram:
+<b><p style= "color: #9F24FF"> EXERCISE: <p> </b> Let's adapt the code of our histogram:
 
 + (1) add `bins = 15` argument (type different numbers)
 + (2) add `fill = "#FF6666"` (type "red", "blue", instead of #FF6666)
@@ -349,7 +349,7 @@ knitr::include_graphics("https://user-images.githubusercontent.com/54796579/1088
 
 ---
 
-**Exercise**: See what happens when you add `+ theme_minimal()`, `+ theme_void()`, or `+ theme_dag() to the DAG. What package do you think is laying behind the mappings of `ggdag`?
+<b><p style= "color: #9F24FF"> EXERCISE: <p> </b> See what happens when you add `+ theme_minimal()`, `+ theme_void()`, or `+ theme_dag() to the DAG. What package do you think is laying behind the mappings of `ggdag`?
 
 `r blogdown::shortcode("spoiler", text = "Answer")`
 
@@ -480,7 +480,7 @@ knitr::include_graphics("https://user-images.githubusercontent.com/54796579/1088
 ```
 ---
 
-**Exercise**: Let's adapt the code to make **X** a **confounder** and a **collider**.
+<b><p style= "color: #9F24FF"> EXERCISE: <p> </b> Let's adapt the code to make **X** a **confounder** and a **collider**.
 
 
 `r blogdown::shortcode("spoiler", text = "Answer")`

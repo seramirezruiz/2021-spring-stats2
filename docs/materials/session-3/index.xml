@@ -72,7 +72,7 @@ The variance of the distribution is $\sigma^{2}$.
     </item>
     
     <item>
-      <title>Basics of Data Visualization</title>
+      <title>Basics of Data Visualization and DAGs in R</title>
       <link>https://seramirezruiz.github.io/2021-spring-stats2/materials/session-3/03-online-tutorial/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://seramirezruiz.github.io/2021-spring-stats2/materials/session-3/03-online-tutorial/</guid>
@@ -155,7 +155,11 @@ library(ggdag) # To create our DAGs&lt;/code&gt;&lt;/pre&gt;
   geom_point()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/108834786-e1fb7d00-75ce-11eb-8a23-81414b76c484.png&#34; width=&#34;70%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;Exercise&lt;/strong&gt;: Once we have our scatterplot. Can you think of a way to adapt the code to:&lt;/p&gt;
+&lt;b&gt;
+&lt;p style= &#34;color: #9F24FF&#34;&gt;
+EXERCISE:
+&lt;p&gt;
+&lt;p&gt;&lt;/b&gt; Once we have our scatterplot. Can you think of a way to adapt the code to:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;convey another dimension through color, the species of penguin&lt;/li&gt;
@@ -197,7 +201,11 @@ library(ggdag) # To create our DAGs&lt;/code&gt;&lt;/pre&gt;
   geom_histogram()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/108834871-f93a6a80-75ce-11eb-9a05-2161f6bad744.png&#34; width=&#34;70%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;Exercise&lt;/strong&gt;: Let&#39;s adapt the code of our histogram:&lt;/p&gt;
+&lt;b&gt;
+&lt;p style= &#34;color: #9F24FF&#34;&gt;
+EXERCISE:
+&lt;p&gt;
+&lt;p&gt;&lt;/b&gt; Let&#39;s adapt the code of our histogram:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;add &lt;code&gt;bins = 15&lt;/code&gt; argument (type different numbers)&lt;/li&gt;
@@ -303,7 +311,11 @@ library(ggdag) # To create our DAGs&lt;/code&gt;&lt;/pre&gt;
 ggdag::ggdag(our_dag)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/108834887-fb9cc480-75ce-11eb-8ec0-a2c28143612e.png&#34; width=&#34;70%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;Exercise&lt;/strong&gt;: See what happens when you add &lt;code&gt;+ theme_minimal()&lt;/code&gt;, &lt;code&gt;+ theme_void()&lt;/code&gt;, or &lt;code&gt;+ theme_dag() to the DAG. What package do you think is laying behind the mappings of&lt;/code&gt;ggdag`?&lt;/p&gt;
+&lt;b&gt;
+&lt;p style= &#34;color: #9F24FF&#34;&gt;
+EXERCISE:
+&lt;p&gt;
+&lt;p&gt;&lt;/b&gt; See what happens when you add &lt;code&gt;+ theme_minimal()&lt;/code&gt;, &lt;code&gt;+ theme_void()&lt;/code&gt;, or &lt;code&gt;+ theme_dag() to the DAG. What package do you think is laying behind the mappings of&lt;/code&gt;ggdag`?&lt;/p&gt;
 &lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-2&#34;&gt;
   &lt;summary&gt;Answer&lt;/summary&gt;
   &lt;p&gt;&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;our_dag &amp;lt;- ggdag::dagify(d ~ p,
@@ -396,7 +408,11 @@ ggdag::ggdag(our_dag) + theme_void()&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;section&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/108834894-fccdf180-75ce-11eb-89ef-d0e7ecf2719f.png&#34; width=&#34;70%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Exercise&lt;/strong&gt;: Let&#39;s adapt the code to make &lt;strong&gt;X&lt;/strong&gt; a &lt;strong&gt;confounder&lt;/strong&gt; and a &lt;strong&gt;collider&lt;/strong&gt;.&lt;/p&gt;
+&lt;b&gt;
+&lt;p style= &#34;color: #9F24FF&#34;&gt;
+EXERCISE:
+&lt;p&gt;
+&lt;p&gt;&lt;/b&gt; Let&#39;s adapt the code to make &lt;strong&gt;X&lt;/strong&gt; a &lt;strong&gt;confounder&lt;/strong&gt; and a &lt;strong&gt;collider&lt;/strong&gt;.&lt;/p&gt;
 &lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-3&#34;&gt;
   &lt;summary&gt;Answer&lt;/summary&gt;
   &lt;p&gt;&lt;ul&gt;
