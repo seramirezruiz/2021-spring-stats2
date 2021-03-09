@@ -634,9 +634,9 @@ Exercise
 matched_df &lt;- MatchIt::match.data(match_process)
 matched_model &lt;- lm(outcome ~ trearment, data = matched_df)</code></pre>
 <p>where treat is the dichotomous treatment variable, and x1 and x2 are pre-treatment co-variates, all of which are contained in the data frame <em>mydata</em>.</p>
-<p><strong>As you can see, the outcome variable is not included in the matching procedure.</strong></p>
+<p>{{% callout note %}} <strong>As you can see, the outcome variable is not included in the matching procedure.</strong> {{% /callout %}}</p>
 <hr />
-<p>`MatchIt is capable of using several matching <em>methods</em>:</p>
+<p><code>MatchIt</code> is capable of using several matching <em>methods</em>:</p>
 <ul>
 <li><p>Exact (<em>method = &quot;exact&quot;</em>): The simplest version of matching is exact. This technique matches each treated unit to all possible control units with exactly the same values on all the covariates, forming subclasses such that within each subclass all units (treatment and control) have the same covariate values.</p></li>
 <li><p>Subclassification (<em>method = &quot;subclass&quot;</em>): When there are many covariates (or some covariates can take a large number of values), finding sufficient exact matches will often be impossible. The goal of subclassification is to form subclasses, such that in each of them the distribution (rather than the exact values) of covariates for the treated and control groups are as similar as possible.</p></li>
@@ -915,14 +915,14 @@ summary(one_match)</code></pre>
 ## 
 ## Summary of balance for matched data:
 ##             Means Treated Means Control SD Control Mean Diff eQQ Med  eQQ Mean
-## distance           0.1927        0.1927     0.0846    0.0000  0.0042    0.0041
-## race_white         0.7411        0.7493     0.4336   -0.0081  0.0000    0.0060
-## w3income       82568.9357    81775.6653 46655.0432  793.2703  0.0000 2831.4820
-## p5hmage           39.5932       39.6169     5.1757   -0.0237  0.0000    0.1788
-## p5numpla           1.0917        1.0777     0.2839    0.0141  0.0000    0.0154
-## w3momed_hsb        0.2234        0.2226     0.4162    0.0007  0.0000    0.0077
+## distance           0.1927        0.1927     0.0846    0.0000  0.0042    0.0040
+## race_white         0.7411        0.7493     0.4336   -0.0081  0.0000    0.0026
+## w3income       82568.9357    81775.6653 46655.1981  793.2703  0.0000 3178.8823
+## p5hmage           39.5932       39.6169     5.1757   -0.0237  0.0000    0.1267
+## p5numpla           1.0917        1.0777     0.2839    0.0141  0.0000    0.0155
+## w3momed_hsb        0.2234        0.2226     0.4162    0.0007  0.0000    0.0095
 ##              eQQ Max
-## distance    1.22e-02
+## distance    1.20e-02
 ## race_white  1.00e+00
 ## w3income    6.25e+04
 ## p5hmage     9.00e+00
@@ -931,18 +931,18 @@ summary(one_match)</code></pre>
 ## 
 ## Percent Balance Improvement:
 ##             Mean Diff.  eQQ Med eQQ Mean  eQQ Max
-## distance       99.9987  92.5506  92.5276  83.9724
-## race_white     94.5656   0.0000  96.0119   0.0000
-## w3income       97.0711 100.0000  89.5398   0.0000
-## p5hmage        98.8326 100.0000  92.0696 -28.5714
-## p5numpla       63.0544   0.0000  61.4485  50.0000
-## w3momed_hsb    99.6886   0.0000  96.7574   0.0000
+## distance       99.9987  92.6038  92.7374  84.1649
+## race_white     94.5656   0.0000  98.2776   0.0000
+## w3income       97.0711 100.0000  88.2565   0.0000
+## p5hmage        98.8326 100.0000  94.3789 -28.5714
+## p5numpla       63.0544   0.0000  61.1494  50.0000
+## w3momed_hsb    99.6886   0.0000  96.0060   0.0000
 ## 
 ## Sample sizes:
 ##           Control Treated
 ## All          7915    1352
-## Matched      1169    1352
-## Unmatched    6746       0
+## Matched      1160    1352
+## Unmatched    6755       0
 ## Discarded       0       0</code></pre>
 <p>We can interpret the resulting output as follows:</p>
 <ul>
@@ -993,13 +993,13 @@ P value
 race_white
 </td>
 <td style="text-align:right;">
-0.735
+0.743
 </td>
 <td style="text-align:right;">
 0.741
 </td>
 <td style="text-align:right;">
-0.720
+0.910
 </td>
 </tr>
 <tr>
@@ -1007,13 +1007,13 @@ race_white
 p5hmage
 </td>
 <td style="text-align:right;">
-39.436
+39.521
 </td>
 <td style="text-align:right;">
 39.593
 </td>
 <td style="text-align:right;">
-0.455
+0.730
 </td>
 </tr>
 <tr>
@@ -1021,13 +1021,13 @@ p5hmage
 w3income
 </td>
 <td style="text-align:right;">
-79639.096
+79313.015
 </td>
 <td style="text-align:right;">
 82568.936
 </td>
 <td style="text-align:right;">
-0.115
+0.080
 </td>
 </tr>
 <tr>
@@ -1041,7 +1041,7 @@ p5numpla
 1.092
 </td>
 <td style="text-align:right;">
-0.240
+0.233
 </td>
 </tr>
 <tr>
@@ -1049,13 +1049,13 @@ p5numpla
 w3momed_hsb
 </td>
 <td style="text-align:right;">
-0.231
+0.233
 </td>
 <td style="text-align:right;">
 0.223
 </td>
 <td style="text-align:right;">
-0.650
+0.577
 </td>
 </tr>
 </tbody>
@@ -1098,14 +1098,14 @@ c5r2mtsc_std
 catholic
 </td>
 <td>
--0.163<sup>***</sup>
+-0.164<sup>***</sup>
 </td>
 </tr>
 <tr>
 <td style="text-align:left">
 </td>
 <td>
-(0.036)
+(0.037)
 </td>
 </tr>
 <tr>
@@ -1119,7 +1119,7 @@ catholic
 Constant
 </td>
 <td>
-0.373<sup>***</sup>
+0.374<sup>***</sup>
 </td>
 </tr>
 <tr>
@@ -1144,7 +1144,7 @@ Constant
 Observations
 </td>
 <td>
-2,521
+2,512
 </td>
 </tr>
 <tr>
@@ -1168,7 +1168,7 @@ Adjusted R<sup>2</sup>
 Residual Std. Error
 </td>
 <td>
-0.910 (df = 2519)
+0.916 (df = 2510)
 </td>
 </tr>
 <tr>
@@ -1176,7 +1176,7 @@ Residual Std. Error
 F Statistic
 </td>
 <td>
-20.144<sup>***</sup> (df = 1; 2519)
+20.106<sup>***</sup> (df = 1; 2510)
 </td>
 </tr>
 <tr>

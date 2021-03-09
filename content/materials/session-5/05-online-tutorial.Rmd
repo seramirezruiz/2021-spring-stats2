@@ -234,11 +234,13 @@ matched_model <- lm(outcome ~ trearment, data = matched_df)
 
 where treat is the dichotomous treatment variable, and x1 and x2 are pre-treatment co-variates, all of which are contained in the data frame *mydata*.  
 
+`r blogdown::shortcode("callout note")`
 **As you can see, the outcome variable is not included in the matching procedure.**
+`r blogdown::shortcode("/callout")`
 
 ---
 
-`MatchIt is capable of using several matching *methods*:
+`MatchIt` is capable of using several matching *methods*:
 
 - Exact (*method = "exact"*): The simplest version of matching is exact. This technique matches each treated unit to all possible control units with exactly the same values on all the covariates, forming subclasses such that within each subclass all units (treatment and control) have the same covariate values. 
 

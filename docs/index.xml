@@ -1895,9 +1895,14 @@ Exercise
 matched_df &amp;lt;- MatchIt::match.data(match_process)
 matched_model &amp;lt;- lm(outcome ~ trearment, data = matched_df)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;where treat is the dichotomous treatment variable, and x1 and x2 are pre-treatment co-variates, all of which are contained in the data frame &lt;em&gt;mydata&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;As you can see, the outcome variable is not included in the matching procedure.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    &lt;strong&gt;As you can see, the outcome variable is not included in the matching procedure.&lt;/strong&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;`MatchIt is capable of using several matching &lt;em&gt;methods&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;MatchIt&lt;/code&gt; is capable of using several matching &lt;em&gt;methods&lt;/em&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Exact (&lt;em&gt;method = &amp;quot;exact&amp;quot;&lt;/em&gt;): The simplest version of matching is exact. This technique matches each treated unit to all possible control units with exactly the same values on all the covariates, forming subclasses such that within each subclass all units (treatment and control) have the same covariate values.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Subclassification (&lt;em&gt;method = &amp;quot;subclass&amp;quot;&lt;/em&gt;): When there are many covariates (or some covariates can take a large number of values), finding sufficient exact matches will often be impossible. The goal of subclassification is to form subclasses, such that in each of them the distribution (rather than the exact values) of covariates for the treated and control groups are as similar as possible.&lt;/p&gt;&lt;/li&gt;
@@ -2176,14 +2181,14 @@ summary(one_match)&lt;/code&gt;&lt;/pre&gt;
 ## 
 ## Summary of balance for matched data:
 ##             Means Treated Means Control SD Control Mean Diff eQQ Med  eQQ Mean
-## distance           0.1927        0.1927     0.0846    0.0000  0.0042    0.0041
-## race_white         0.7411        0.7493     0.4336   -0.0081  0.0000    0.0060
-## w3income       82568.9357    81775.6653 46655.0432  793.2703  0.0000 2831.4820
-## p5hmage           39.5932       39.6169     5.1757   -0.0237  0.0000    0.1788
-## p5numpla           1.0917        1.0777     0.2839    0.0141  0.0000    0.0154
-## w3momed_hsb        0.2234        0.2226     0.4162    0.0007  0.0000    0.0077
+## distance           0.1927        0.1927     0.0846    0.0000  0.0042    0.0040
+## race_white         0.7411        0.7493     0.4336   -0.0081  0.0000    0.0026
+## w3income       82568.9357    81775.6653 46655.1981  793.2703  0.0000 3178.8823
+## p5hmage           39.5932       39.6169     5.1757   -0.0237  0.0000    0.1267
+## p5numpla           1.0917        1.0777     0.2839    0.0141  0.0000    0.0155
+## w3momed_hsb        0.2234        0.2226     0.4162    0.0007  0.0000    0.0095
 ##              eQQ Max
-## distance    1.22e-02
+## distance    1.20e-02
 ## race_white  1.00e+00
 ## w3income    6.25e+04
 ## p5hmage     9.00e+00
@@ -2192,18 +2197,18 @@ summary(one_match)&lt;/code&gt;&lt;/pre&gt;
 ## 
 ## Percent Balance Improvement:
 ##             Mean Diff.  eQQ Med eQQ Mean  eQQ Max
-## distance       99.9987  92.5506  92.5276  83.9724
-## race_white     94.5656   0.0000  96.0119   0.0000
-## w3income       97.0711 100.0000  89.5398   0.0000
-## p5hmage        98.8326 100.0000  92.0696 -28.5714
-## p5numpla       63.0544   0.0000  61.4485  50.0000
-## w3momed_hsb    99.6886   0.0000  96.7574   0.0000
+## distance       99.9987  92.6038  92.7374  84.1649
+## race_white     94.5656   0.0000  98.2776   0.0000
+## w3income       97.0711 100.0000  88.2565   0.0000
+## p5hmage        98.8326 100.0000  94.3789 -28.5714
+## p5numpla       63.0544   0.0000  61.1494  50.0000
+## w3momed_hsb    99.6886   0.0000  96.0060   0.0000
 ## 
 ## Sample sizes:
 ##           Control Treated
 ## All          7915    1352
-## Matched      1169    1352
-## Unmatched    6746       0
+## Matched      1160    1352
+## Unmatched    6755       0
 ## Discarded       0       0&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We can interpret the resulting output as follows:&lt;/p&gt;
 &lt;ul&gt;
@@ -2254,13 +2259,13 @@ P value
 race_white
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-0.735
+0.743
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
 0.741
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-0.720
+0.910
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2268,13 +2273,13 @@ race_white
 p5hmage
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-39.436
+39.521
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
 39.593
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-0.455
+0.730
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2282,13 +2287,13 @@ p5hmage
 w3income
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-79639.096
+79313.015
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
 82568.936
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-0.115
+0.080
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2302,7 +2307,7 @@ p5numpla
 1.092
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-0.240
+0.233
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2310,13 +2315,13 @@ p5numpla
 w3momed_hsb
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-0.231
+0.233
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
 0.223
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-0.650
+0.577
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -2359,14 +2364,14 @@ c5r2mtsc_std
 catholic
 &lt;/td&gt;
 &lt;td&gt;
--0.163&lt;sup&gt;***&lt;/sup&gt;
+-0.164&lt;sup&gt;***&lt;/sup&gt;
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;
 &lt;/td&gt;
 &lt;td&gt;
-(0.036)
+(0.037)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2380,7 +2385,7 @@ catholic
 Constant
 &lt;/td&gt;
 &lt;td&gt;
-0.373&lt;sup&gt;***&lt;/sup&gt;
+0.374&lt;sup&gt;***&lt;/sup&gt;
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2405,7 +2410,7 @@ Constant
 Observations
 &lt;/td&gt;
 &lt;td&gt;
-2,521
+2,512
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2429,7 +2434,7 @@ Adjusted R&lt;sup&gt;2&lt;/sup&gt;
 Residual Std. Error
 &lt;/td&gt;
 &lt;td&gt;
-0.910 (df = 2519)
+0.916 (df = 2510)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2437,7 +2442,7 @@ Residual Std. Error
 F Statistic
 &lt;/td&gt;
 &lt;td&gt;
-20.144&lt;sup&gt;***&lt;/sup&gt; (df = 1; 2519)
+20.106&lt;sup&gt;***&lt;/sup&gt; (df = 1; 2510)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
