@@ -130,7 +130,6 @@ mlda_df &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/se
                        labels = c(&amp;quot;Under legal drinking age&amp;quot;, &amp;quot;Over legal drinking age&amp;quot;)) +
   geom_vline(xintercept = 21, linetype = &amp;quot;dotted&amp;quot;) + # NEW GEOM A VERTICAL LINE!
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(&amp;quot;https://user-images.githubusercontent.com/54796579/113173018-4bfbe780-9249-11eb-9755-5c6695b9049e.png&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/113173018-4bfbe780-9249-11eb-9755-5c6695b9049e.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We can see from the graph that at the 21-years-of-age threshold, young adults can legally consume and buy alcohol in the US, which would make age a viable forcing variable for a sharp-RDD set-up.&lt;/p&gt;
 &lt;hr /&gt;
@@ -155,7 +154,6 @@ mlda_df &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/se
        x = &amp;quot;Forcing variable (Age)&amp;quot;,
        y = &amp;quot;Mortality rate from motor vehicle \naccidents (per 100,000)&amp;quot;) +
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(&amp;quot;https://user-images.githubusercontent.com/54796579/113173046-51593200-9249-11eb-99d2-ae1cca7d1d4e.png&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/113173046-51593200-9249-11eb-99d2-ae1cca7d1d4e.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;NOTE that we have the variable &lt;code&gt;forcing&lt;/code&gt; in this dataset, which is centered at the cutoff. It is nothing but the variable &lt;code&gt;age-21&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;hr /&gt;
@@ -218,7 +216,6 @@ linear_plot &amp;lt;- mlda_df %&amp;gt;% # for this plot make sure to put the df
   theme_minimal()
 
 linear_plot&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(&amp;quot;https://user-images.githubusercontent.com/54796579/113173059-53bb8c00-9249-11eb-8873-37f2ad0643fb.png&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/113173059-53bb8c00-9249-11eb-8873-37f2ad0643fb.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;/div&gt;
@@ -274,7 +271,6 @@ stargazer::stargazer(linear_different_slope, type = &amp;quot;text&amp;quot;)&lt
   theme_minimal()
 
 diff_slopes_plot&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(&amp;quot;https://user-images.githubusercontent.com/54796579/113173084-58804000-9249-11eb-9f9a-4bd110c5fc78.png&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/113173084-58804000-9249-11eb-9f9a-4bd110c5fc78.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Question&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Where can you see our &lt;span class=&#34;math inline&#34;&gt;\(\beta_0\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\beta_1\)&lt;/span&gt;, and &lt;span class=&#34;math inline&#34;&gt;\(\beta_2\)&lt;/span&gt; in the previous plot?&lt;/p&gt;
@@ -358,7 +354,6 @@ quadratic_plot &amp;lt;- mlda_df %&amp;gt;%
   theme_minimal()
 
 quadratic_plot&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(&amp;quot;https://user-images.githubusercontent.com/54796579/113173100-5c13c700-9249-11eb-8ed3-dd90942ea297.png&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/113173100-5c13c700-9249-11eb-8ed3-dd90942ea297.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;/div&gt;
@@ -413,7 +408,6 @@ summary(llr)&lt;/code&gt;&lt;/pre&gt;
                  y.label =  &amp;quot;Mortality rate from motor vehicle \naccidents (per 100,000)&amp;quot;
 )
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(&amp;quot;https://user-images.githubusercontent.com/54796579/113173122-603fe480-9249-11eb-834a-88e02aec7b3d.png&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/113173122-603fe480-9249-11eb-834a-88e02aec7b3d.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;div id=&#34;quadratic-model-with-rdrobust&#34; class=&#34;section level4&#34;&gt;
@@ -456,7 +450,6 @@ summary(quadratic_rdrobust)&lt;/code&gt;&lt;/pre&gt;
                  x.label = &amp;quot;Age from 21&amp;quot;,
                  y.label =  &amp;quot;Mortality rate from motor vehicle \naccidents (per 100,000)&amp;quot;
 )&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(&amp;quot;https://user-images.githubusercontent.com/54796579/113173141-65049880-9249-11eb-88c2-425685d137ea.png&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/113173141-65049880-9249-11eb-88c2-425685d137ea.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;/div&gt;
@@ -500,10 +493,7 @@ ggplot(cct_df,
                        labels = c(&amp;quot;No treatment&amp;quot;, &amp;quot;Treatment&amp;quot;)) +
   geom_vline(xintercept = 20000, linetype = &amp;quot;dotted&amp;quot;) +
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(&amp;quot;https://user-images.githubusercontent.com/54796579/113173157-6930b600-9249-11eb-8b74-9aaf732171c8.png&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/113173157-6930b600-9249-11eb-8b74-9aaf732171c8.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(&amp;quot;https://user-images.githubusercontent.com/54796579/113173172-6c2ba680-9249-11eb-85ef-8e4d5c5f0513.png&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/113173172-6c2ba680-9249-11eb-85ef-8e4d5c5f0513.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/113173157-6930b600-9249-11eb-8b74-9aaf732171c8.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/113173172-6c2ba680-9249-11eb-85ef-8e4d5c5f0513.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We can see from the graph that our €20000 threshold is in fact cutting off the distribution of the treatment. This would make household income a viable forcing variable for a sharp-RDD set-up.&lt;/p&gt;
 &lt;hr /&gt;
 &lt;/div&gt;
@@ -554,7 +544,6 @@ stargazer::stargazer(ed_achievement, type = &amp;quot;text&amp;quot;)&lt;/code&g
                        labels = c(&amp;quot;No treatment&amp;quot;, &amp;quot;Treatment&amp;quot;)) +
   geom_vline(xintercept = 20000, linetype = &amp;quot;dotted&amp;quot;) +
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(&amp;quot;https://user-images.githubusercontent.com/54796579/113173183-6e8e0080-9249-11eb-85d1-7028b83ddde8.png&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/113173183-6e8e0080-9249-11eb-85d1-7028b83ddde8.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The LOESS smoothing is not very visible in this relationship because of the way we defined the simulated data. Let&#39;s look at how it would look in our drinking age example:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mlda_df,
@@ -570,7 +559,6 @@ stargazer::stargazer(ed_achievement, type = &amp;quot;text&amp;quot;)&lt;/code&g
                      values = c(&amp;quot;#F8766D&amp;quot;, &amp;quot;#00BFC4&amp;quot;),
                      labels = c(&amp;quot;Control&amp;quot;, &amp;quot;Treatment&amp;quot;)) +
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(&amp;quot;https://user-images.githubusercontent.com/54796579/113173230-777ed200-9249-11eb-8fa7-07ba3d15148c.png&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/113173230-777ed200-9249-11eb-8fa7-07ba3d15148c.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;div id=&#34;violations-to-the-assumptions&#34; class=&#34;section level4&#34;&gt;
@@ -584,7 +572,6 @@ stargazer::stargazer(ed_achievement, type = &amp;quot;text&amp;quot;)&lt;/code&g
        y = &amp;quot;Number of respondents&amp;quot;) +
   geom_vline(xintercept = 20000, linetype = &amp;quot;dotted&amp;quot;) +
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(&amp;quot;https://user-images.githubusercontent.com/54796579/113173250-7baaef80-9249-11eb-958e-5808577e40d1.png&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/54796579/113173250-7baaef80-9249-11eb-958e-5808577e40d1.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;This case looks a bit ambiguous. Do you think people are sorting out just before the cut-off? If sorting were to exist which assumptions would be challenged? Would the existence of other programs that have the same threshold affect a causal reading of our results?&lt;/p&gt;

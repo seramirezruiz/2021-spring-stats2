@@ -79,7 +79,7 @@ ggplot(mlda_df, aes(x = agecell, # actual age
 ```
 
 
-```{r fig.align="center"}
+```{r fig.align="center", echo = F}
 knitr::include_graphics("https://user-images.githubusercontent.com/54796579/113173018-4bfbe780-9249-11eb-9755-5c6695b9049e.png")
 ```
 
@@ -113,7 +113,7 @@ ggplot(mlda_df,
   theme_minimal()
 ```
 
-```{r fig.align="center"}
+```{r fig.align="center", echo = F}
 knitr::include_graphics("https://user-images.githubusercontent.com/54796579/113173046-51593200-9249-11eb-99d2-ae1cca7d1d4e.png")
 ```
 
@@ -173,7 +173,7 @@ linear_plot <- mlda_df %>% # for this plot make sure to put the df outside the g
 linear_plot
 ```
 
-```{r fig.align="center"}
+```{r fig.align="center", echo = F}
 knitr::include_graphics("https://user-images.githubusercontent.com/54796579/113173059-53bb8c00-9249-11eb-8873-37f2ad0643fb.png")
 ```
 
@@ -217,7 +217,7 @@ diff_slopes_plot <- mlda_df %>%
 diff_slopes_plot
 ```
 
-```{r fig.align="center"}
+```{r fig.align="center", echo = F}
 knitr::include_graphics("https://user-images.githubusercontent.com/54796579/113173084-58804000-9249-11eb-9f9a-4bd110c5fc78.png")
 ```
 
@@ -291,7 +291,7 @@ quadratic_plot <- mlda_df %>%
 quadratic_plot
 ```
 
-```{r fig.align="center"}
+```{r fig.align="center", echo = F}
 knitr::include_graphics("https://user-images.githubusercontent.com/54796579/113173100-5c13c700-9249-11eb-8ed3-dd90942ea297.png")
 ```
 
@@ -341,7 +341,7 @@ rdrobust::rdplot(mlda_df$outcome,
 
 ```
 
-```{r fig.align="center"}
+```{r fig.align="center", echo = F}
 knitr::include_graphics("https://user-images.githubusercontent.com/54796579/113173122-603fe480-9249-11eb-834a-88e02aec7b3d.png")
 ```
 
@@ -371,7 +371,7 @@ rdrobust::rdplot(mlda_df$outcome,
 )
 ```
 
-```{r fig.align="center"}
+```{r fig.align="center", echo = F}
 knitr::include_graphics("https://user-images.githubusercontent.com/54796579/113173141-65049880-9249-11eb-88c2-425685d137ea.png")
 ```
 
@@ -425,7 +425,7 @@ ggplot(cct_df,
   theme_minimal()
 ```
 
-```{r fig.align="center"}
+```{r fig.align="center", echo = F}
 knitr::include_graphics("https://user-images.githubusercontent.com/54796579/113173157-6930b600-9249-11eb-8b74-9aaf732171c8.png")
 
 knitr::include_graphics("https://user-images.githubusercontent.com/54796579/113173172-6c2ba680-9249-11eb-85ef-8e4d5c5f0513.png")
@@ -472,7 +472,7 @@ ggplot(cct_df,
   theme_minimal()
 ```
 
-```{r fig.align="center"}
+```{r fig.align="center", echo = F}
 knitr::include_graphics("https://user-images.githubusercontent.com/54796579/113173183-6e8e0080-9249-11eb-85d1-7028b83ddde8.png")
 ```
 
@@ -494,7 +494,7 @@ ggplot(mlda_df,
   theme_minimal()
 ```
 
-```{r fig.align="center"}
+```{r fig.align="center", echo = F}
 knitr::include_graphics("https://user-images.githubusercontent.com/54796579/113173230-777ed200-9249-11eb-8fa7-07ba3d15148c.png")
 ```
 
@@ -515,7 +515,7 @@ ggplot(cct_df,
   theme_minimal()
 ```
 
-```{r fig.align="center"}
+```{r fig.align="center", echo = F}
 knitr::include_graphics("https://user-images.githubusercontent.com/54796579/113173250-7baaef80-9249-11eb-958e-5808577e40d1.png")
 ```
 

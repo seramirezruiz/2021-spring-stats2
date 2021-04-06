@@ -66,7 +66,6 @@ mlda_df &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/seramirezr
                        labels = c(&quot;Under legal drinking age&quot;, &quot;Over legal drinking age&quot;)) +
   geom_vline(xintercept = 21, linetype = &quot;dotted&quot;) + # NEW GEOM A VERTICAL LINE!
   theme_minimal()</code></pre>
-<pre class="r"><code>knitr::include_graphics(&quot;https://user-images.githubusercontent.com/54796579/113173018-4bfbe780-9249-11eb-9755-5c6695b9049e.png&quot;)</code></pre>
 <p><img src="https://user-images.githubusercontent.com/54796579/113173018-4bfbe780-9249-11eb-9755-5c6695b9049e.png" style="display: block; margin: auto;" /></p>
 <p>We can see from the graph that at the 21-years-of-age threshold, young adults can legally consume and buy alcohol in the US, which would make age a viable forcing variable for a sharp-RDD set-up.</p>
 <hr />
@@ -91,7 +90,6 @@ mlda_df &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/seramirezr
        x = &quot;Forcing variable (Age)&quot;,
        y = &quot;Mortality rate from motor vehicle \naccidents (per 100,000)&quot;) +
   theme_minimal()</code></pre>
-<pre class="r"><code>knitr::include_graphics(&quot;https://user-images.githubusercontent.com/54796579/113173046-51593200-9249-11eb-99d2-ae1cca7d1d4e.png&quot;)</code></pre>
 <p><img src="https://user-images.githubusercontent.com/54796579/113173046-51593200-9249-11eb-99d2-ae1cca7d1d4e.png" style="display: block; margin: auto;" /></p>
 <p><strong>NOTE that we have the variable <code>forcing</code> in this dataset, which is centered at the cutoff. It is nothing but the variable <code>age-21</code></strong></p>
 <hr />
@@ -154,7 +152,6 @@ linear_plot &lt;- mlda_df %&gt;% # for this plot make sure to put the df outside
   theme_minimal()
 
 linear_plot</code></pre>
-<pre class="r"><code>knitr::include_graphics(&quot;https://user-images.githubusercontent.com/54796579/113173059-53bb8c00-9249-11eb-8873-37f2ad0643fb.png&quot;)</code></pre>
 <p><img src="https://user-images.githubusercontent.com/54796579/113173059-53bb8c00-9249-11eb-8873-37f2ad0643fb.png" style="display: block; margin: auto;" /></p>
 <hr />
 </div>
@@ -210,7 +207,6 @@ stargazer::stargazer(linear_different_slope, type = &quot;text&quot;)</code></pr
   theme_minimal()
 
 diff_slopes_plot</code></pre>
-<pre class="r"><code>knitr::include_graphics(&quot;https://user-images.githubusercontent.com/54796579/113173084-58804000-9249-11eb-9f9a-4bd110c5fc78.png&quot;)</code></pre>
 <p><img src="https://user-images.githubusercontent.com/54796579/113173084-58804000-9249-11eb-9f9a-4bd110c5fc78.png" style="display: block; margin: auto;" /></p>
 <p><strong>Question</strong></p>
 <p>Where can you see our <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span>, and <span class="math inline">\(\beta_2\)</span> in the previous plot?</p>
@@ -294,7 +290,6 @@ quadratic_plot &lt;- mlda_df %&gt;%
   theme_minimal()
 
 quadratic_plot</code></pre>
-<pre class="r"><code>knitr::include_graphics(&quot;https://user-images.githubusercontent.com/54796579/113173100-5c13c700-9249-11eb-8ed3-dd90942ea297.png&quot;)</code></pre>
 <p><img src="https://user-images.githubusercontent.com/54796579/113173100-5c13c700-9249-11eb-8ed3-dd90942ea297.png" style="display: block; margin: auto;" /></p>
 <hr />
 </div>
@@ -349,7 +344,6 @@ summary(llr)</code></pre>
                  y.label =  &quot;Mortality rate from motor vehicle \naccidents (per 100,000)&quot;
 )
 </code></pre>
-<pre class="r"><code>knitr::include_graphics(&quot;https://user-images.githubusercontent.com/54796579/113173122-603fe480-9249-11eb-834a-88e02aec7b3d.png&quot;)</code></pre>
 <p><img src="https://user-images.githubusercontent.com/54796579/113173122-603fe480-9249-11eb-834a-88e02aec7b3d.png" style="display: block; margin: auto;" /></p>
 <hr />
 <div id="quadratic-model-with-rdrobust" class="section level4">
@@ -392,7 +386,6 @@ summary(quadratic_rdrobust)</code></pre>
                  x.label = &quot;Age from 21&quot;,
                  y.label =  &quot;Mortality rate from motor vehicle \naccidents (per 100,000)&quot;
 )</code></pre>
-<pre class="r"><code>knitr::include_graphics(&quot;https://user-images.githubusercontent.com/54796579/113173141-65049880-9249-11eb-88c2-425685d137ea.png&quot;)</code></pre>
 <p><img src="https://user-images.githubusercontent.com/54796579/113173141-65049880-9249-11eb-88c2-425685d137ea.png" style="display: block; margin: auto;" /></p>
 <hr />
 </div>
@@ -436,10 +429,7 @@ ggplot(cct_df,
                        labels = c(&quot;No treatment&quot;, &quot;Treatment&quot;)) +
   geom_vline(xintercept = 20000, linetype = &quot;dotted&quot;) +
   theme_minimal()</code></pre>
-<pre class="r"><code>knitr::include_graphics(&quot;https://user-images.githubusercontent.com/54796579/113173157-6930b600-9249-11eb-8b74-9aaf732171c8.png&quot;)</code></pre>
-<p><img src="https://user-images.githubusercontent.com/54796579/113173157-6930b600-9249-11eb-8b74-9aaf732171c8.png" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>knitr::include_graphics(&quot;https://user-images.githubusercontent.com/54796579/113173172-6c2ba680-9249-11eb-85ef-8e4d5c5f0513.png&quot;)</code></pre>
-<p><img src="https://user-images.githubusercontent.com/54796579/113173172-6c2ba680-9249-11eb-85ef-8e4d5c5f0513.png" style="display: block; margin: auto;" /></p>
+<p><img src="https://user-images.githubusercontent.com/54796579/113173157-6930b600-9249-11eb-8b74-9aaf732171c8.png" style="display: block; margin: auto;" /><img src="https://user-images.githubusercontent.com/54796579/113173172-6c2ba680-9249-11eb-85ef-8e4d5c5f0513.png" style="display: block; margin: auto;" /></p>
 <p>We can see from the graph that our €20000 threshold is in fact cutting off the distribution of the treatment. This would make household income a viable forcing variable for a sharp-RDD set-up.</p>
 <hr />
 </div>
@@ -490,7 +480,6 @@ stargazer::stargazer(ed_achievement, type = &quot;text&quot;)</code></pre>
                        labels = c(&quot;No treatment&quot;, &quot;Treatment&quot;)) +
   geom_vline(xintercept = 20000, linetype = &quot;dotted&quot;) +
   theme_minimal()</code></pre>
-<pre class="r"><code>knitr::include_graphics(&quot;https://user-images.githubusercontent.com/54796579/113173183-6e8e0080-9249-11eb-85d1-7028b83ddde8.png&quot;)</code></pre>
 <p><img src="https://user-images.githubusercontent.com/54796579/113173183-6e8e0080-9249-11eb-85d1-7028b83ddde8.png" style="display: block; margin: auto;" /></p>
 <p>The LOESS smoothing is not very visible in this relationship because of the way we defined the simulated data. Let's look at how it would look in our drinking age example:</p>
 <pre class="r"><code>ggplot(mlda_df,
@@ -506,7 +495,6 @@ stargazer::stargazer(ed_achievement, type = &quot;text&quot;)</code></pre>
                      values = c(&quot;#F8766D&quot;, &quot;#00BFC4&quot;),
                      labels = c(&quot;Control&quot;, &quot;Treatment&quot;)) +
   theme_minimal()</code></pre>
-<pre class="r"><code>knitr::include_graphics(&quot;https://user-images.githubusercontent.com/54796579/113173230-777ed200-9249-11eb-8fa7-07ba3d15148c.png&quot;)</code></pre>
 <p><img src="https://user-images.githubusercontent.com/54796579/113173230-777ed200-9249-11eb-8fa7-07ba3d15148c.png" style="display: block; margin: auto;" /></p>
 <hr />
 <div id="violations-to-the-assumptions" class="section level4">
@@ -520,7 +508,6 @@ stargazer::stargazer(ed_achievement, type = &quot;text&quot;)</code></pre>
        y = &quot;Number of respondents&quot;) +
   geom_vline(xintercept = 20000, linetype = &quot;dotted&quot;) +
   theme_minimal()</code></pre>
-<pre class="r"><code>knitr::include_graphics(&quot;https://user-images.githubusercontent.com/54796579/113173250-7baaef80-9249-11eb-958e-5808577e40d1.png&quot;)</code></pre>
 <p><img src="https://user-images.githubusercontent.com/54796579/113173250-7baaef80-9249-11eb-958e-5808577e40d1.png" style="display: block; margin: auto;" /></p>
 <hr />
 <p>This case looks a bit ambiguous. Do you think people are sorting out just before the cut-off? If sorting were to exist which assumptions would be challenged? Would the existence of other programs that have the same threshold affect a causal reading of our results?</p>
