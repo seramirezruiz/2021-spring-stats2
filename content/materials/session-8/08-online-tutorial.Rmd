@@ -83,8 +83,9 @@ You can read the vignette [here](https://tidyr.tidyverse.org/articles/pivot.html
 <h5 style="color:#cc0055;">How to use `tidyr::pivot_longer()`</h5>
 
 ```r
-your_wide_df <- tidyr::pivot_longer(
-  data,
+your_new_long_df <- 
+tidyr::pivot_longer(
+  your_wide_df,
   cols,
   names_to = "name",
   values_to = "value"  

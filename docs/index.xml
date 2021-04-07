@@ -1724,8 +1724,9 @@ Why do we care about the data format
 &lt;h5 style=&#34;color:#cc0055;&#34;&gt;
 How to use &lt;code&gt;tidyr::pivot_longer()&lt;/code&gt;
 &lt;/h5&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;your_wide_df &amp;lt;- tidyr::pivot_longer(
-  data,
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;your_new_long_df &amp;lt;- 
+tidyr::pivot_longer(
+  your_wide_df,
   cols,
   names_to = &amp;quot;name&amp;quot;,
   values_to = &amp;quot;value&amp;quot;  
