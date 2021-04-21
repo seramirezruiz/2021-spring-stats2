@@ -1,16 +1,15 @@
 ---
-title: "Panel Data and Fixed Effects"
+title: "Session 09 - Panel Data and Fixed Effects"
 subtitle: "Our first steps in Panel Data and Fixed Effects with R"
-type: book
-weight: 5
-output:
-  blogdown:html_page:
-    theme: journal
-    highlight: tango
+output: 
+  html_document:
+    toc: TRUE
     df_print: paged
-    toc: yes
-    toc_float:
-      collapsed: false
+    number_sections: FALSE
+    highlight: tango
+    theme: journal
+    toc_depth: 3
+    toc_float: true
 ---
 
 ```{r, include = F}
